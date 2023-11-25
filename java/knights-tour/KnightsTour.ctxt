@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=KnightsTour
+comment1.params=
+comment1.target=KnightsTour()
+comment2.params=
+comment2.target=void\ board()
+comment3.params=a\ b
+comment3.target=boolean\ check(int,\ int)
+comment4.params=
+comment4.target=void\ print()
+numComments=5
