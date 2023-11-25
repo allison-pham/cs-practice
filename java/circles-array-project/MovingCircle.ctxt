@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=MovingCircle
+comment1.params=x\ y\ radius\ c\ angle\ speed
+comment1.target=MovingCircle(float,\ float,\ float,\ com.badlogic.gdx.graphics.Color,\ float,\ float)
+comment2.params=
+comment2.target=void\ move()
+numComments=3

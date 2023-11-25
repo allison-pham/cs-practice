@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=SandLab
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=numRows\ numCols
+comment2.target=SandLab(int,\ int)
+comment3.params=row\ col\ tool
+comment3.target=void\ locationClicked(int,\ int,\ int)
+comment4.params=
+comment4.target=void\ updateDisplay()
+comment5.params=
+comment5.target=void\ step()
+comment6.params=
+comment6.target=void\ run()
+numComments=7
