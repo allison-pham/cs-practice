@@ -1,0 +1,31 @@
+class Vehicle { //Super class
+    private String vehicleName;
+    private String model; //Model of vehicle
+ 
+    //Constructor
+    public Vehicle(String vehicleName, String model) {
+   	 this.vehicleName=vehicleName;
+   	 this.model=model;
+    }
+
+    public String getVehicleName() {
+   	 return vehicleName;
+    }
+
+    public String getModel() {
+   	 return model;
+    }
+
+    public void setName(String vehicleName) {
+   	 this.vehicleName=vehicleName;
+    }
+
+    public void setAge(String model) {
+   	 this.model=model;
+    }
+
+    @Override
+    public String toString() {
+   	 return "Vehicle: "+vehicleName+", model: "+model;
+    }
+}

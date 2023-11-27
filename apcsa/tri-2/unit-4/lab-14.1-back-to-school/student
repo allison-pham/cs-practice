@@ -1,0 +1,43 @@
+class Student extends Person { //Subclass
+  private String idNum;    // Student Id Number
+  private double gpa; 	 // grade point average
+
+  // constructor
+  public Student(String name, int age,
+        		 String idNum, double gpa)
+  {
+    // use the super class' constructor
+    super(name, age);
+
+    // initialize what's new to Student
+    this.idNum=idNum;
+    this.gpa=gpa;
+  }
+
+  public String getIdNum()
+  {
+	 return idNum;
+  }
+
+  public double getGPA()
+  {
+	 return gpa;
+  }
+
+  public void setIdNum(String idNum)
+  {
+	 this.idNum=idNum;
+  }
+
+  public void setGPA(double gpa)
+  {
+	 this.gpa=gpa;
+  }
+  
+    // overrides the toString method in the parent class
+  @Override
+  public String toString()
+  {
+	 return super.toString() + ", student id: " + idNum + ", gpa: " + gpa;
+  }
+}

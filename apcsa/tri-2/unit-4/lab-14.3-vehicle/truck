@@ -1,0 +1,23 @@
+class Truck extends Vehicle {
+    private int carryingLoad; //Carrying pay load (e.g. 2,000 lbs)
+
+    //Constructor
+    public Truck(String vehicleName, String model, int carryingLoad) {
+   	 super(vehicleName, model);
+
+   	 this.carryingLoad=carryingLoad;
+    }
+
+    public int getCarryingLoad() {
+   	 return carryingLoad;
+    }
+
+    public void setCarryingLoad(int carryingLoad) {
+   	 this.carryingLoad=carryingLoad;
+    }
+
+    @Override
+    public String toString() {
+   	 return super.toString()+", carrying load: "+carryingLoad;
+    }
+}

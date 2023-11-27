@@ -1,0 +1,23 @@
+class ElectricCar extends Car {
+    private double battery; //Battery capacity in kilo watt hrs (e.g. Tesla Model 3 --> 75 kWh)
+
+    //Constructor
+    public ElectricCar(String vehicleName, String model, int seat, double battery) {
+   	 super(vehicleName, model, seat);
+
+   	 this.battery=battery;
+    }
+
+    public double getBattery() {
+   	 return battery;
+    }
+
+    public void setBattery(double battery) {
+   	 this.battery=battery;
+    }
+
+    @Override
+    public String toString() {
+   	 return super.toString()+", battery capacity: "+battery;
+    }
+}

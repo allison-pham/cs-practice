@@ -1,0 +1,23 @@
+class GasCar extends Car {
+    private double gas; //Gas tank capacity in gallons
+
+    //Constructor
+    public GasCar(String vehicleName, String model, int seat, double gas) {
+   	 super(vehicleName, model, seat);
+
+   	 this.gas=gas;
+    }
+
+    public double getGas() {
+   	 return gas;
+    }
+
+    public void setGas(double gas) {
+   	 this.gas=gas;
+    }
+
+    @Override
+    public String toString() {
+   	 return super.toString()+", gas tank capacity: "+gas;
+    }
+}
