@@ -1,0 +1,80 @@
+public class TaxPayer {
+    private char filingStatus;
+    private static double taxIncome;
+
+    static final double TAX_1=0.15;
+    static final double TAX_2=0.275;
+    static final double TAX_3=0.305;
+    static final double TAX_4=0.355;
+    static final double TAX_5=0.391;
+
+    public TaxPayer() {
+   	 filingStatus=0;
+   	 taxIncome=0;
+    }
+
+    public TaxPayer(char theFilingStatus, double theTaxIncome) {
+   	 filingStatus=theFilingStatus;
+   	 taxIncome=theTaxIncome;
+    }
+
+    public char getStatus(char status) {
+   	 return status;
+    }
+
+    public double getIncome(double income) {
+   	 return income;
+    }
+
+    private static double calcSingleTax(double tax) {
+   	 if(taxIncome>0 && taxIncome<=27050)
+   		 tax=TAX_1 * (tax-0);
+
+   	 else if(taxIncome>27050 && taxIncome<=65550)
+   		 tax=4057.50 + TAX_2 * (tax-27050);
+
+   	 else if(taxIncome>65550 && taxIncome<=136750)
+   		 tax=14645.00 + TAX_3 * (tax-65550);
+
+   	 else if(taxIncome>136750 && taxIncome<=297350)
+   		 tax=36361.00 + TAX_4 * (tax-136750);
+
+   	 else if(taxIncome>297350)
+   		 tax=93374.00 + TAX_5 * (tax-297350);
+
+   	 return tax;
+    }
+
+    private static double calcMarriedTax(double tax) {
+   	 if(taxIncome>0 && taxIncome<=45200)
+   		 tax=TAX_1 * (tax-0);
+
+   	 else if(taxIncome>45200 && taxIncome<=109250)
+   		 tax=6780.00 + TAX_2 * (tax-45200);
+
+   	 else if(taxIncome>109250 && taxIncome<=166500)
+   		 tax=24393.75 + TAX_3 * (tax-109250);
+
+   	 else if(taxIncome>166500 && taxIncome<=297350)
+   		 tax=41855.00 + TAX_4 * (tax-166500);
+
+   	 else if(taxIncome>297350)
+   		 tax=88306.00 + TAX_5 * (tax-297350);
+
+   	 return tax;
+    }
+
+    public static double calculateTax() {
+   	 char statusStr='S';
+   	 double taxPaid=0;
+
+   	 if(statusStr=='S' || statusStr=='s') {
+   		 taxPaid=calcSingleTax(taxIncome);
+   	 }
+   	 else if(statusStr=='M' || statusStr=='m') {
+   		 taxPaid=calcMarriedTax(taxIncome);
+   	 }
+
+   	 return taxPaid;
+    }
+}

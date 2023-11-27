@@ -1,0 +1,34 @@
+import chn.util.*;
+import apcslib.*;
+public class Tester {
+	public static void main() {
+    	ConsoleIO input=new ConsoleIO();
+
+    	System.out.print("What is your name? ");
+    	String studentName=input.readToken();
+    	System.out.print("What is your student ID? ");
+    	String studentID=input.readToken();
+   	 
+    	Student enter=new Student(studentName, studentID);
+    	double myGPA=enter.getGPA();
+    	System.out.println("\nInitial GPA: "+Format.decimalPlaces(myGPA, 2));
+
+    	System.out.print("\nEnter a grade: ");
+    	int grade1=input.readInt();
+    	enter.addGrade(grade1); //Adds to number of grades
+    	myGPA=enter.getGPA(); //Calculates GPA
+    	System.out.println("Student GPA: "+Format.decimalPlaces(myGPA, 2));
+
+    	System.out.print("\nEnter a 2nd grade: ");
+    	int grade2=input.readInt();
+    	enter.addGrade(grade2);
+    	myGPA=enter.getGPA();
+    	System.out.println("Student GPA: "+Format.decimalPlaces(myGPA, 2));
+
+    	System.out.print("\nEnter a 3rd grade: ");
+    	int grade3=input.readInt();
+    	enter.addGrade(grade3);
+    	myGPA=enter.getGPA();
+    	System.out.println("Student GPA: "+Format.decimalPlaces(myGPA, 2));
+	}
+}

@@ -1,0 +1,45 @@
+import apcslib.*;
+public class Fun {
+    //Notes: Call static methods using class instead of reference variable
+    private Fun() { //private
+   	 double fahrenheit=0;
+   	 double celsius=0;
+   	 double radius=0;
+   	 double a=0;
+   	 double b=0;
+    }
+
+    public Fun(double f, double c, double shape, double adjacent, double opposite) {
+   	 double fahrenheit=f;
+   	 double celsius=c;
+   	 double radius=shape;
+   	 double a=adjacent;
+   	 double b=opposite;
+    }
+
+    //Converter
+    public static double fToC(double fToC) {
+   	 //amount=5/9*Math.subtractExact(amount, 32);
+
+   	 double celsius=Fun.fToC(100);
+   	 return celsius;
+    }
+
+    public static double cToF(double cToF) {
+   	 double fahrenheit=Fun.cToF(100);
+   	 return fahrenheit;
+    }
+
+    public static double getSphere(double radius) {
+   	 radius=4/3*3.1415926*(radius*radius*radius);
+   	 return radius;
+    }
+
+    public static double getHypotenuse(double a, double b) {
+   	 a=a*a;
+   	 b=b*b;
+   	 double c=a+b;
+   	 c=Math.sqrt(c);
+   	 return c;
+    }
+}
