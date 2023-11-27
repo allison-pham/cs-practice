@@ -1,0 +1,29 @@
+#Answer for Genie
+'''#create a program that will allow Aladdin (the user) to input 3 wishes if he rubs the lamp.
+#Everytime he enters a wish print "Your wish is my command"
+
+rubTrue = input("Press y to rub lamp")
+if rubTrue == "y":
+    numWishes = 3
+    while numWishes > 0:
+        wish = input("Type a wish:")
+        if ("I wish" in wish):
+            print("Your wish is my command")
+            numWishes -= 1
+        else:
+            print("You must have 'I wish'")'''
+
+#Answer for Non-Human
+'''#Given a list of Aladdin characters, count the number that are not humans and print the count.
+#print out the names of the characters who are not human
+characters = ["Aladdin", "Jasmine", "Abu", "Jafar", "Genie", "Carpet", "Rajah", "Iago"]
+charactersSpecies =  ["Human", "Human", "Monkey", "Human", "Genie", "Carpet", "Tiger", "Parrot"]
+
+count = 0
+
+for index in range(len(charactersSpecies)):
+    if charactersSpecies[index] != "Human":
+        count += 1
+        print(characters[index])
+        
+print(count)'''

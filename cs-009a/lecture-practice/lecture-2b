@@ -1,0 +1,68 @@
+#create a program that asks the user for a number of bananas, and a number of friends.
+#Output how many bananas are given to each friend.
+#If there are more friends than bananas, print out how many people will NOT receive a banana.
+bananas = input("How many bananas do you have?")
+friends = input("How many friends do you have?")
+bananas_per_friend = 0
+
+if int(friends) > 0 and int(bananas) > 0:
+    if friends <= bananas:
+        if bananas % 2 != 0:  # Odd
+            bananas_per_friend -= 1
+        
+        bananas_per_friend = int(bananas) / int(friends)
+        print(f"Each friend receives {bananas_per_friend}.")
+    
+    elif friends > bananas:
+        not_receive_banana = int(friends) - int(bananas)
+        print(f"{not_receive_banana} friends will not receive a banana.")
+    
+#Professor's Answer
+'''numBananas = int(input("How many bananas do you have?"))
+numFriends = int(input("How many friends do you have?"))
+
+if numBananas <= 0: #if numBananas is invalid
+    print("You'll starve to death lol")
+elif numFriends <= 0: #if numFriends is invalid
+    print("You're probably a STEM major...")
+else:
+    
+    if numFriends > numBananas:
+        #calculate number of friends who don't receive one.
+        numHungryFriends = numFriends - numBananas
+        if numHungryFriends == 1:
+            print(f"Looks like {numHungryFriends} friend doesn't get bananas")  
+        else:
+            print(f"Looks like {numHungryFriends} friends don't get bananas")
+        
+    else:
+        bananaFriendRatio = numBananas / numFriends
+        #check if numBananas is evenly divisible by numFriends
+        if numBananas % numFriends == 0:
+            print(f"Everyone gets {int(bananaFriendRatio)} bananas!")
+        else:
+            print(f"Everyone gets {bananaFriendRatio} bananas!")'''
+
+#My Answer (During Class)
+'''bananas = float(input('How many bananas do you have?'))
+friends = int(input('How many friends do you have?'))
+
+bananas_per_friend = bananas / friends
+friends_with_none = 0
+check = False
+
+if bananas % friends == 0:
+    check = True
+else:
+    friends_with_none = friends - bananas
+#if bananas > friends:
+    #bananas_per_friend = bananas / friends
+    #check = True
+#else: #bananas < friends
+    #friends_with_none = friends - bananas
+
+#Make sure to print
+if check == True:
+    print(f'Each friend gets {int(bananas_per_friend)} bananas.')
+else: #check = False
+    print(f'Unfortunately, there are not enough bananas for every friend you have. {friends_with_none} of your friends will receive none')'''

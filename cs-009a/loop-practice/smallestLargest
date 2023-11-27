@@ -1,0 +1,19 @@
+#2) Problem (smallest and largest number in the list) : Write a function called smallestLargest(
+#numList ) that receives a list of numbers and prints the smallest and largest value.
+def smallestLargest(numList): 
+    if not numList: #If list is empty
+        return None
+    
+    smallest = largest = numList[0] #Assign multiple variables to one value
+    
+    for i in numList:
+        if i < smallest:
+            smallest = i
+            
+        elif i > largest:
+            largest = i
+    
+    return smallest, largest
+
+nums = [3, 5, 7, 3]
+print(smallestLargest(nums)) #Call the function

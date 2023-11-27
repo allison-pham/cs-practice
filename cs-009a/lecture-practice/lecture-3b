@@ -1,0 +1,85 @@
+#Answer for Favorite Shows
+'''myFavoriteShows = ["Survivor", "Ted Lasso", "Hunter Hunter", "Lost", "Spy Family"]
+
+#How do I add "Modern Family"?
+myFavoriteShows.append("Modern Family")
+
+#How do I remove "Ted Lasso"?
+#myFavoriteShows.remove("Ted Lasso") #Requires specific value for .remove()
+myFavoriteShows.pop(1)
+
+#I want to arrange these from most to least favorite. Lost should be in the front
+#insert then pop
+#myFavoriteShows.insert(0, "Lost")
+#myFavoriteShows.pop(3)
+
+#remove
+#myFavoriteShows.remove("Lost")
+#myFavoriteShows.insert(0, "Lost")
+
+#index
+#lostIndex = myFavoriteShows.index("Lost")
+#myFavoriteShows.insert(0, myFavoriteShows[lostIndex])
+#myFavoriteShows.pop(lostIndex + 1) #+1 because inserted "Lost" to index 0
+
+myFavoriteShows #Don't need to use print to show what's in the variable (in Jupyter Hub (IDE) & some other IDEs)
+
+myFavoriteGames = ["Pokemon", "Minecraft", "Cuphead", "Hades", "Papers Please", "Inscryption"]
+
+#How do I add "Sketch" to the top favorite?
+#myFavoriteGames.insert(0, "Sketch")'''
+
+#Answer for Favorite Games
+'''yourFavoriteGames = ["Fortnite", "Minecraft", "League of Legends", "Clash Royale", "Hades"]
+
+#myFavoriteGames.append(yourFavoriteGames[2])
+
+#Write a program that checks if your favorite game is one of my favorite games!
+#If your favorite game is one of my favorites, output the placement of the game in my list. 1st, 2nd, 3rd, 4th, etc.
+if yourFavoriteGames[0] in myFavoriteGames:
+    gamePlacement = myFavoriteGame.index(yourFavoriteGames[0]) + 1 #Store the index. Index is going to be 1
+    #+1 is needed because it
+    
+    #Solution 1
+    #if gamePlacement % 100 > 10 and gamePlacement % 100 < 20:
+       #print(f"{gamePlacement}th")
+    #elif gamePlacement % 10 == 1:
+        #print(f"{gamePlacement}st")
+    #elif gamePlacement % 10 == 2:
+        #print(f"{gamePlacement}nd")
+    #elif gamePlacement % 10 == 3:
+        #print(f"{gamePlacement}rd")
+    #else:
+        #print(f"{gamePlacement}th")
+    
+    #Solution 2
+    #isInTeens = gamePlacement % 100 > 10 and gamePlacement % 100 < 20
+    #if gamePlacement % 10 == 1 and not isInTeens:
+        #print(f"{gamePlacement}st")
+    #elif gamePlacement % 10 == 2 and not isInTeens:
+        #print(f"{gamePlacement}nd")
+    #elif gamePlacement % 10 == 3 and not isInTeens:
+        #print(f"{gamePlacement}rd")
+    #else:
+        #print(f"{gamePlacement}th")
+    
+    #print(f'{yourFavoriteGames[0]} is one of my favorites!')
+    #Return only when coding within a function
+else:
+    print(f'You have bad taste. Only losers like {yourFavoriteGames[0]}.')'''
+    
+#Answer for Movies
+'''#Say I have a string called movies
+movies = "Barbie;Oppenheimer;Super Mario Bros."
+
+movieList = movies.split(";") #Split up character-by-character
+
+#newList = list(movieList)
+
+movieList
+
+#pop(), parameter is an index
+#remove(), parameter is a value to remove
+#append(), parameter is a value to add
+#index(), parameter is a value
+#insert(), parameter is an index & value'''

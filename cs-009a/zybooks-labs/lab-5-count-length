@@ -1,0 +1,12 @@
+#Given a line of text as input, output the number of characters excluding spaces, periods, exclamation points, or commas.
+#Ex: If the input is:
+#Listen, Mr. Jones, calm down.
+#the output is:
+#21
+#Note: Account for all characters that aren't spaces, periods, exclamation points, or commas (Ex: "r", "2", "?").
+def counting(userInput):
+    count = 0
+    for i in userInput:
+        if i != ' ' and i != '.' and i != '!' and i != ',':
+            count += 1
+    return len(userInput) - count
