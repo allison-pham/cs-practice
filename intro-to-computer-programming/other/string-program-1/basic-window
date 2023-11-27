@@ -1,0 +1,22 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class BasicWindow
+{
+    public static void main(String[] args)
+    {
+   	 setSize(400, 400);   		 // Sets the size of the window to 400 x 400 pixels
+   	 setTitle("Basic Window");    // Sets the title within the window
+   	 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    // Stop the program correctly
+  	 
+   	 Container c = getContentPane();   	 // Get the window's content pane
+   	 BasicPanel bp =new BasicPanel();    // Create a panel to place in the content pane
+   	 c.add(bp);                   		 // Add the panel to the content pain
+    }
+    
+    public static void main(String[] args)
+    {
+   	 BasicWindow bw = new BasicWindow();    // Create the frame
+   	 bw.setVisible(true);       		 // Make the frame visible
+    }
+}
