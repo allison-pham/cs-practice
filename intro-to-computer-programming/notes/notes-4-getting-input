@@ -1,0 +1,16 @@
+import javax.swing.*; //* wildcard, swing is a graphics library
+//car* -- carpet carmel cartoon. * = search with car or anything
+//need this import in order to get input from the user
+public class Sport
+{
+    public static void main(String[] args)
+    {
+   	 String sport = JOptionPane.showInputDialog("What is your favorite sport?");
+   	 System.out.println("Your favorite sport is " + sport + "!");
+   	 sport = JOptionPane.showInputDialog("What is your favorite sports team?");
+   	 System.out.println("Your favorite sports team is the " + sport + "!");
+  	 
+   	 String pie = JOptionPane.showInputDialog("What is your least favorite kind of pie?");
+   	 System.out.println("Your least favorite kind of pie is " + pie);
+    }
+}

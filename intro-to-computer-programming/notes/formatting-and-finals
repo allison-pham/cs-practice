@@ -1,0 +1,51 @@
+import javax.swing.*;
+import java.text.*; //this is formatting
+public class Main
+{
+    public static void main(String[] args)
+    {
+   	 //Shortcuts: F8=notes and F7=back to normal
+   	 String input;
+   	 double cost;
+   	 double averageCost;
+   	 int howMany;
+  	 
+   	 input=JOptionPane.showInputDialog("How many video games do you own?");
+   	 howMany=Integer.parseInt(input); //change the String to an int and store the result in howMany
+  	 
+   	 input=JOptionPane.showInputDialog("How much does each game cost on average?");
+   	 averageCost=Double.parseDouble(input); //change the new String in input to a double an dstore the result in averageCost
+  	 
+   	 cost=howMany*averageCost;
+  	 
+   	 //money should be formatted to 2 decimals and have a $ symbol
+   	 NumberFormat formatter=NumberFormat.getCurrencyInstance(); //"formatter" can be replaced by any variable name
+   	 //1. data type - NumberFormat
+   	 //2. Name variable - formatter
+   	 //3. initialize/reassign - getCurrencyInstance()
+   	 //Note about NumberFormat - you need to format a double or an int! It returns a String.
+  	 
+   	 // System.out.println("I have spent "+formatter.format(cost)+" on video games!"); //that will round cost to 2 ddecimals and add the $
+   	 JOptionPane.showMessageDialog(null, "I have spent "+formatter.format(cost)+" on video games!");
+   	 //a^2+b^2=c^2
+   	 //c=sqroot(a^2+b^2)
+   	 double a=Double.parseDouble(JOptionPane.showInputDialog("Enter side a: "));
+   	 double b=Double.parseDouble(JOptionPane.showInputDialog("Enter side b: "));
+   	 //data type must be String
+  	 
+   	 final int DECIMALS=2; //constant or a final, it is a value that cannot get reassigned, makes your code more readable!
+   	 //And you always use all uppercase for the VARIABLE_NAME!
+  	 
+   	 formatter=NumberFormat.getNumberInstance();
+   	 formatter.setMaximumFractionDigits(DECIMALS);
+   	 formatter.setMinimumFractionDigits(DECIMALS); //round to exactly 2 decimal places!
+  	 
+   	 double c=Math.sqrt(a*a+b*b); //use ctrl+space after typing "."
+   	 //or use Math.pow
+   	 String output=formatter.format(c);
+  	 
+   	 // System.out.println("If the legs of your right triangle are "+a+" and "+b+" then the hypotenuse is of length "+output);
+   	 JOptionPane.showMessageDialog(null, "If the legs of your right triangle are "+a+" and "+b+" then the hypotenues is of length "+output);
+   	 //outputs the answer when launching jar file
+    }
+}

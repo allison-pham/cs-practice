@@ -1,0 +1,23 @@
+// Notes4ChangingStringsToIntsOrDoubles
+import javax.swing.*; //bc we are going to get input
+public class Notes4ChangingStringsToIntsOrDoubles
+{
+    public static void main(String[] args)
+    {
+   	 //write a program that displays how much it will cost to fill up your car's gas tank
+   	 String gallons=JOptionPane.showInputDialog("How many gallons does "+"your car's gas tank hold?");
+   	 String priceOfGas=JOptionPane.showInputDialog("How much does a gallon "+"of gas cost?");
+   	 //parsing the input (changing the input to the dsata type we require)
+  	 
+   	 //gas price
+   	 double tankCapacity=Double.parseDouble(gallons);
+   	 double pricePerGallon=Double.parseDouble(priceOfGas);
+   	 double finalCost=tankCapacity+pricePerGallon;
+   	 System.out.println("It will cost you $"+finalCost+" to fill up "+"your car!!!!");
+  	 
+   	 //ice cream
+   	 int scoops=Integer.parseInt(JOptionPane.showInputDialog("How many scoops of ice "+"cream would you like?"));
+   	 scoops=scoops+1;
+   	 System.out.println("You are the 100th customer, you get "+scoops+" scoops!");
+    }
+}
