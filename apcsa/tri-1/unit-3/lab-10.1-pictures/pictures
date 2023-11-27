@@ -1,0 +1,35 @@
+import apcslib.*;
+public class Pictures {
+    private Pictures() {
+    }
+
+    public static void printTable (int rows, int cols) {
+   	 for(int j=1; j<=cols; j++) { //Cols
+   		 System.out.print(Format.right(j, 7)+" ");
+   	 }
+   	 System.out.println("\n");
+
+   	 for(int i=1; i<=rows; i++) { //Rows
+   		 System.out.print(i);
+
+   		 for(int k=1; k<=cols; k++) {
+       		 System.out.print(Format.right(i*k, 8)+"");
+   		 }
+   		 System.out.println();
+   	 }
+    }
+
+    public static void Pyramid(int lines) {
+   	 int max=10;
+
+   	 for(int i=0; i<max; i++) { //Rows
+   		 for(int k=0; k<=max-i; k++) { //Spaces
+       		 System.out.print(" ");
+   		 }
+   		 for(int j=0; j<=i; j++) { //Astericks/stars
+       		 System.out.print("* ");
+   		 }
+   		 System.out.println();
+   	 }
+    }
+}

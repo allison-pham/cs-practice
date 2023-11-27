@@ -1,0 +1,19 @@
+import chn.util.*;
+public class Tester {
+    public static void main(String[] args) {
+   	 ConsoleIO input=new ConsoleIO();
+
+   	 String str=input.promptToken("Enter a grade or non-grade character to quit.");
+   	 str=str.toUpperCase();
+   	 char ch=str.charAt(0);
+
+   	 Student checking=new Student();
+   	 double haveGPA=checking.getGPA();
+  	 
+   	 while(ch=='A' || ch=='B' || ch=='C' || ch=='D' || ch=='F') {
+   		 str=input.promptToken("Enter a grade or non-grade character to quit.");
+   	 }
+  	 
+   	 System.out.println("GPA = "+haveGPA);
+    }
+}
