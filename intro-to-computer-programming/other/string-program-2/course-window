@@ -1,0 +1,42 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class CourseWindow extends JFrame
+{
+	public CourseWindow()
+	{
+  	  setSize(400, 200);  		  // Sets the size of the window to 400 x 400 pixels
+  	  setTitle("Mine and friend's courses");	// Sets the title within the window
+  	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// Stop the program correctly
+  	 
+  	  String name;
+  	  String period1;
+  	  String period2;
+  	  String period3;
+  	  String period4;
+  	  String period5;
+  	 
+  	 
+  	  Container c = getContentPane();  	  // Get the window's content pane
+  	 
+  	  // Change the values of the variables name and period1 thru period6 Strings to your schedule
+  	  // PUT YOUR CODE HERE
+  	 
+  	  CoursePanel leftPanel =new CoursePanel(name, period1, period2, period3, period4, period5);
+  	 
+  	  // Change the values of the variables name and period1 thru period6 Strings to a friends schedule
+  	  // PUT YOUR CODE HERE
+  	 
+  	  CoursePanel rightPanel =new CoursePanel(name, period1, period2, period3, period4, period5);
+  	 
+  	  c.setLayout(new GridLayout(1,2));	// Place the two panels side by side
+  	  c.add(leftPanel);  				  // Add the panel to the content pain
+  	  c.add(rightPanel);  				  // Add the panel to the content pain
+	}
+    
+	public static void main(String[] args)
+	{
+  	  CourseWindow bw = new CourseWindow();	// Create the frame
+  	  bw.setVisible(true);  				  // Make the frame visible
+	}
+}

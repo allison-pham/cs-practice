@@ -1,0 +1,21 @@
+import javax.swing.JOptionPane;
+public class ParsingWorksheet3
+{
+    public static void main(String[] args)
+    {
+   	 int num1, num2;
+   	 int sum;
+   	 String input;
+   	 input = JOptionPane.showInputDialog("Enter an integer value");
+   	 num1=Integer.parseInt(input); //missing part #1
+  	 
+   	 input = JOptionPane.showInputDialog("Enter another integer value");
+   	 num2=Integer.parseInt(input); //missing part #2
+   	 sum=Integer.parseInt(input); //missing part #3
+   	 sum=num1+num2; //missing part #4
+  	 
+   	 System.out.println("You first number is " + num1);
+   	 System.out.println("You second number is " + num2);
+   	 System.out.println("The sum of your numbers is " + sum);
+    }
+}

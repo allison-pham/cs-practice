@@ -1,0 +1,18 @@
+import javax.swing.JOptionPane;
+public class ParsingWorksheet2
+{
+    public static void main(String[] args)
+    {
+   	 //ParsingWorksheet2
+   	 double num;
+   	 double numTripled;
+   	 String input;
+   	 input = JOptionPane.showInputDialog("Enter a real value");
+
+   	 num=Double.parseDouble(input); //missing part #1
+   	 numTripled=Double.parseDouble(input)*3; //missing part #2
+
+   	 System.out.println("You original number was " + num);
+   	 System.out.println("Your number tripled is " + numTripled);
+    }
+}

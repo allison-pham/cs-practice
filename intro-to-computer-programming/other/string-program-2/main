@@ -1,0 +1,33 @@
+public class StringProgram2
+{
+    public static void main(String[] args)
+    {
+   	 System.out.println("*****#1*****");
+   	 String city="La Jolla";
+   	 System.out.println("I was born in "+city);
+   	 city="La Jolla";
+   	 System.out.println("I was born in "+city);
+   	 System.out.println("");
+
+   	 System.out.println("*****#2*****");
+   	 String name="Allison";
+   	 String animal="koala";
+   	 System.out.println("My name is "+name+", and my favorite animal is a "+animal+".");  	 
+   	 name="Allison";
+   	 animal="koala";
+   	 String FriendsName="Lexi";
+   	 String FavoriteAnimal="koala";
+   	 System.out.println("My friend's name is "+FriendsName+", and her favorite animal is also a "+FavoriteAnimal+".");
+   	 System.out.println("");
+  	 
+   	 System.out.println("*****#3*****");
+   	 String dogName="Buttons";
+   	 String dogSound="bark";
+   	 System.out.println("The dog "+dogName+" says "+dogSound+"!!!");
+   	 dogName="Buttons";
+   	 dogSound="bark";
+   	 String dogName1="Oliver";
+   	 String dogSound1="bark";
+   	 System.out.println("The dog "+dogName1+" says "+dogSound+"!!!");
+    }
+}

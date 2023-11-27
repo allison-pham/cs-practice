@@ -1,0 +1,29 @@
+import javax.swing.*;
+public class Variables
+{
+    public static void main(String[] args)
+    {
+   	 int a = 24;
+   	 int b = -7;
+   	 double x = 12.4;
+   	 double y = 2.5;
+   	 String s1 = "Alone";
+   	 String s2 = "99";
+   	 x = a - b;
+   	 System.out.println("x = " + x);
+   	 a = b * 400 / 3;
+   	 System.out.println("a = " + a);
+   	 y = x - y;
+   	 System.out.println("y = " + y);
+   	 s1 = s1 + b;
+   	 System.out.println("s1 = " + s1);
+   	 s1 = s1 + s2;
+   	 System.out.println("s1 = " + s1);
+   	 s2 = "nine-nine" + s2;
+   	 System.out.println("s2 = " + s2);
+   	 s2 = 99 + s2;
+   	 System.out.println("s2 = " + s2);
+   	 s2 = 9.9 + s2;
+   	 System.out.println("s2 = " + s2);
+    }
+}
