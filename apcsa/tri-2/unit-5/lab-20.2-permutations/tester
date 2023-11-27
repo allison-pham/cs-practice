@@ -1,0 +1,16 @@
+import java.util.*;
+public class Tester {
+    public static void main(String[] args) {
+   	 Permutations ans = new Permutations();
+   	 // for(int i = 1; i<= 5; i++) {
+   	 // ArrayList<Integer> method1 = ans.generatePermutationMethod1();  
+   	 // ans.generatePermutationMethod1();
+   	 // ans.sumFirstAndLast(method1);
+   	 // }
+   	 System.out.println("Method 1:");
+   	 ans.printMethod1();
+   	 System.out.println();
+   	 System.out.println("Method 2:");
+   	 ans.printMethod2();
+    }
+}

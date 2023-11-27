@@ -1,0 +1,34 @@
+public class Chick extends Animal {
+    private String myType;
+    private String mySound;
+    private String mySoundB;
+    public Chick(String type, String sound, String soundB) {
+   	 myType = "chick"; //type
+   	 mySound = "cheep"; //sound
+   	 mySoundB = "cluck"; //soundB
+    }
+
+    // public Chick(String soundB) {
+    // mySoundB = "cluck"; //soundB
+    // }
+
+    @Override
+    public String getSound() {
+   	 //Equal probability - use Math.random()
+   	 int roll = (int) Math.random() * 2 + 1;
+   	 //Math.random() goes from 0 to <1
+   	 // if(roll == 1) {
+   	 if(Math.random() > 0.5) {
+   		 mySound = mySound;
+   	 }
+   	 else {
+   		 mySound = mySoundB;
+   	 }
+   	 return mySound;
+    }
+
+    @Override
+    public String getType() {
+   	 return myType;
+    }
+}

@@ -1,0 +1,83 @@
+import java.util.*;
+public class Permutations {
+    //Notes:
+    //Permutation: all the different combinations of a given set of numbers
+    //ArrayLists's sizes can change dynamically
+    //Printing an object variable for Arrays: toString() is being called
+    //If not, we see the memory location
+
+    //Method 1
+    public static ArrayList<Integer> generatePermutationMethod1() {
+   	 ArrayList<Integer> list = new ArrayList<Integer>(); //Stores all values produced by "roll"
+   	 do {
+   		 int roll = (int)(Math.random() * 10 + 1); //0-10 for index, must be in loop to repeat
+   		 if(!(list.contains(roll))) //Only runs if the value is not already in the list
+       		 list.add(roll); //list is empty --> use helper method
+   	 }while(list.size() < 10);
+   	 System.out.println(list);
+   	 return list;
+    }
+
+    //Method 2
+    public static ArrayList<Integer> generatePermutationMethod2() {
+   	 //ArrayList<Integer> values = new ArrayList<Integer>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+   	 ArrayList<Integer> values = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+   	 ArrayList<Integer> store = new ArrayList<Integer>(); //Stores the random nums
+   	 for(int i = 0; i<values.size()-1; i++) {
+   		 int index = (int)(Math.random() * store.size() - 1 + 1); //(max-min+1) + min
+   		 store.add(values.remove(index));
+   	 }
+   	 //Remove the value at the index
+   	 //Then, add to second ArrayList
+   	 System.out.println(store);
+   	 return store;
+    }
+
+    public static int sumFirstAndLast(ArrayList<Integer> list) {
+   	 // ArrayList<Integer> m1 = Permutations.generatePermutationMethod1();
+   	 // ArrayList<Integer> m2 = Permutations.generatePermutationMethod2();
+   	 // sum.add(m1);
+   	 // sum.add(m2);
+   	 // list.addAll(m1);
+   	 // list.addAll(m2);
+   	 int sum = list.get(0) + list.get(list.size()-1);
+   	 System.out.println("Sum of first and last: " + sum);
+   	 return sum;
+    }
+    
+    public void printMethod1()
+    {
+   	 ArrayList<Integer> list1 = generatePermutationMethod1();
+   	 sumFirstAndLast(list1);
+  	 
+   	 ArrayList<Integer> list2 = generatePermutationMethod1();
+   	 sumFirstAndLast(list2);
+  	 
+   	 ArrayList<Integer> list3 = generatePermutationMethod1();
+   	 sumFirstAndLast(list3);
+  	 
+   	 ArrayList<Integer> list4= generatePermutationMethod1();
+   	 sumFirstAndLast(list4);
+  	 
+   	 ArrayList<Integer> list5 = generatePermutationMethod1();
+   	 sumFirstAndLast(list5);
+    }
+    
+    public void printMethod2()
+    {
+   	 ArrayList<Integer> list1 = generatePermutationMethod2();
+   	 sumFirstAndLast(list1);
+  	 
+   	 ArrayList<Integer> list2 = generatePermutationMethod2();
+   	 sumFirstAndLast(list2);
+  	 
+   	 ArrayList<Integer> list3 = generatePermutationMethod2();
+   	 sumFirstAndLast(list3);
+  	 
+   	 ArrayList<Integer> list4= generatePermutationMethod2();
+   	 sumFirstAndLast(list4);
+  	 
+   	 ArrayList<Integer> list5 = generatePermutationMethod2();
+   	 sumFirstAndLast(list5);
+    }
+}
