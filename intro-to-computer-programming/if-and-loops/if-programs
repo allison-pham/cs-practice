@@ -1,0 +1,266 @@
+import javax.swing.*;
+import java.text.*;
+public class IfPrograms
+{
+    public static void main(String[] args)
+    {
+   	 //Problem 1: Integers
+   	 int value=Integer.parseInt(JOptionPane.showInputDialog("Enter integer:"));
+   	 if(value<0)
+   	 {
+   		 System.out.println("The number is negative!");
+   	 }
+   	 else if(value>0)
+   	 {
+   		 System.out.println("The number is positive!");
+   	 }
+   	 else
+   	 {
+   		 System.out.println("The number is neither positive nor negative!");
+   	 }
+
+   	 //Problem 2: Do you want to continue?
+   	 String input;
+   	 input=JOptionPane.showInputDialog("Do you want to continue?");
+   	 if(input.equalsIgnoreCase("Y")||input.equalsIgnoreCase("Yes"))
+   	 {
+   		 System.out.println("ok");
+   	 }
+   	 else if(input.equalsIgnoreCase("N")||input.equalsIgnoreCase("No"))
+   	 {
+   		 System.out.println("terminating");
+   	 }
+
+   	 //Problem 3: Employees
+   	 double name=Double.parseDouble(JOptionPane.showInputDialog("Enter your name"));
+   	 double wage=Double.parseDouble(JOptionPane.showInputDialog("What is your hourly wage?"));
+   	 double hours=Double.parseDouble(JOptionPane.showInputDialog("How many hours did you work in the past week?"));
+   	 NumberFormat formatter1=NumberFormat.getCurrencyInstance();
+   	 formatter1.setMaximumFractionDigits(2);
+   	 formatter1.setMinimumFractionDigits(2);
+   	 double paid=wage*hours;
+   	 if(wage<=40)
+   	 {
+   		 System.out.println(name+" was paid "+formatter1.format(paid));
+   	 }
+   	 else
+   	 {
+   		 double numA=paid+(paid*0.5);
+   		 double overtime=paid*numA;
+   		 System.out.println(name+" was paid "+formatter1.format(overtime));
+   	 }
+
+   	 //Problem 4: Telephone call
+   	 double minutes=Double.parseDouble(JOptionPane.showInputDialog("Enter minutes for call"));
+   	 NumberFormat formatter2=NumberFormat.getCurrencyInstance();
+   	 formatter2.setMaximumFractionDigits(2);
+   	 formatter2.setMinimumFractionDigits(2);
+   	 if(minutes<=3)
+   	 {
+   		 double initial=1.15;
+   		 System.out.println("Cost of call is $"+minutes);
+   	 }
+   	 else
+   	 {
+   		 double initial=1.15;
+   		 double extra=0.26;
+   		 double total=initial+((minutes-3)*extra);
+   		 System.out.println("Cost of call is $"+total);
+   	 }
+
+   	 //Problem 5: Quadratic equation
+   	 int variableA=Integer.parseInt(JOptionPane.showInputDialog("Enter the value for the a coefficient"));
+   	 int variableB=Integer.parseInt(JOptionPane.showInputDialog("Enter the value for the b coefficient"));
+   	 int variableC=Integer.parseInt(JOptionPane.showInputDialog("Enter the value for the c coefficient"));
+   	 double equation=Math.sqrt(variableB^2-4*variableA*variableC);
+   	 if (equation>0)
+   	 {
+   		 System.out.println("There are real solutions");
+   	 }
+   	 else
+   	 {
+   		 System.out.println("No real solutions");
+   	 }
+
+   	 //Problem 6: Grade value
+   	 double grade=Double.parseDouble(JOptionPane.showInputDialog("Enter the grade value (0-4):"));
+   	 if(grade>=3.5&&grade<=4.0)
+   	 {
+   		 System.out.println("Your grade is an A");
+   	 }
+   	 else if(grade>=2.5&&grade<3.5)
+   	 {
+   		 System.out.println("Your grade is a B");
+   	 }
+   	 else if(grade==1.5&&grade<2.5)
+   	 {
+   		 System.out.println("Your grade is a C");
+   	 }
+   	 else if(grade==0.5&&grade<1.5)
+   	 {
+   		 System.out.println("Your grade is a D");
+   	 }
+   	 else if(grade<0.5)
+   	 {
+   		 System.out.println("Your grade is a F");
+   	 }
+
+   	 //Problem 7: Month days
+   	 int month=Integer.parseInt(JOptionPane.showInputDialog("Enter a month by its numeric value"));
+   	 if(month==1||month==3||month==5||month==7||month==9||month==11)
+   	 {
+   		 System.out.println("The days in this month is 31");
+   	 }
+   	 else if(month==4||month==6||month==8||month==10||month==12)
+   	 {
+   		 System.out.println("The days in this month is 30");
+   	 }
+   	 else if(month==2)
+   	 {
+   		 System.out.println("The days in this month is 28");
+   	 }
+
+   	 ///Problem 8: Leap year
+   	 int year=Integer.parseInt(JOptionPane.showInputDialog("Enter a year. Example: 2006"));
+   	 int leapyear=4;
+   	 if(year%4==0)
+   	 {
+   		 System.out.println(year+" is a leap year");
+   	 }
+   	 else
+   	 {
+   		 System.out.println(year+" is NOT a leap year");
+   	 }
+
+   	 //Problem 9: Dividing
+   	 double integer1=Double.parseDouble(JOptionPane.showInputDialog("Enter the first integer:"));
+   	 double integer2=Double.parseDouble(JOptionPane.showInputDialog("Enter the second integer:"));
+   	 if(integer1>integer2)
+   	 {
+   		 double division1=integer1/integer2;
+   		 double remainder1=integer1%integer2;
+   		 System.out.println(division1+"r. "+remainder1);
+   	 }
+   	 else
+   	 {
+   		 double division2=integer2/integer1;
+   		 double remainder2=integer2%integer1;
+   		 System.out.println(division2+" r. "+remainder2);
+   	 }
+
+   	 //Problem 10: Slope
+   	 double x1=Double.parseDouble(JOptionPane.showInputDialog("Enter the x coordinate of the first point:"));
+   	 double y1=Double.parseDouble(JOptionPane.showInputDialog("Enter the y coordinate of the first point:"));
+   	 double x2=Double.parseDouble(JOptionPane.showInputDialog("Enter the x coordinate of the second point:"));
+   	 double y2=Double.parseDouble(JOptionPane.showInputDialog("Enter the y coordinate of the second point:"));
+   	 NumberFormat formatter3=NumberFormat.getCurrencyInstance();
+   	 formatter3.setMaximumFractionDigits(3);
+   	 formatter3.setMinimumFractionDigits(3);
+   	 if(x2-x1!=0)
+   	 {
+   		 double x=x2-x1;
+   		 double y=y2-y1;
+   		 double xy=y/x;
+   		 System.out.println("The slope is: "+xy);
+   	 }
+   	 else
+   	 {
+   		 System.out.println("The slope is UNDEFINED.");
+   	 }
+
+   	 //Problem 11: Largest integer
+   	 double int1=Double.parseDouble(JOptionPane.showInputDialog("Enter the first int:"));
+   	 double int2=Double.parseDouble(JOptionPane.showInputDialog("Enter the second int:"));
+   	 double int3=Double.parseDouble(JOptionPane.showInputDialog("Enter the third int:"));
+   	 if(int1>int2)
+   	 {
+   		 System.out.println("The largest integer input was "+int1);
+   	 }
+   	 else if(int1>int3)
+   	 {
+   		 System.out.println("The largest integer input was "+int1);
+   	 }
+   	 else if(int2>int1)
+   	 {
+   		 System.out.println("The largest integer input was "+int2);
+   	 }
+   	 else if(int2>int3)
+   	 {
+   		 System.out.println("The largest integer input was "+int2);
+   	 }
+   	 else if(int3>int1)
+   	 {
+   		 System.out.println("The largest integer input was "+int3);
+   	 }
+   	 else if(int3>int2)
+   	 {
+   		 System.out.println("The largest integer input was "+int3);
+   	 }
+
+   	 //Problem 12: Weight on different planets
+   	 double earthweight=Double.parseDouble(JOptionPane.showInputDialog("Enter your weight on Earth"));
+   	 double planet=Double.parseDouble(JOptionPane.showInputDialog("Planet choices (enter one): Earth, Jupiter, "
+           		 +"Mars, Mercury, Neptune, Pluto, Saturn, Uranus, Venus"));
+   	 NumberFormat formatter4=NumberFormat.getCurrencyInstance();
+   	 formatter4.setMaximumFractionDigits(1);
+   	 formatter4.setMinimumFractionDigits(1);
+   	 double earth=earthweight*1.00;
+   	 double jupiter=earthweight*2.65;
+   	 double mars=earthweight*0.39;
+   	 double mercury=earthweight*0.38;
+   	 double neptune=earthweight*1.23;
+   	 double pluto=earthweight*0.05;
+   	 double saturn=earthweight*1.17;
+   	 double uranus=earthweight*1.05;
+   	 double venus=earthweight*0.78;
+   	 if(planet==earth)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(earth)+"pounds on Earth");
+   	 }
+
+   	 else if(planet==jupiter)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(jupiter)+"pounds on Earth");
+   	 }
+   	 else if(planet==mars)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(mars)+"pounds on Earth");
+   	 }
+   	 else if(planet==mercury)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(mercury)+"pounds on Earth");
+   	 }
+   	 else if(planet==neptune)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(neptune)+"pounds on Earth");
+   	 }
+   	 else if(planet==pluto)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(pluto)+"pounds on Earth");
+   	 }
+
+   	 else if(planet==saturn)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(saturn)+"pounds on Earth");
+   	 }
+
+   	 else if(planet==uranus)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(uranus)+"pounds on Earth");
+   	 }
+
+   	 else if(planet==venus)
+   	 {
+   		 System.out.println("Choice: "+planet);
+   		 System.out.println("You weigh "+formatter4.format(venus)+"pounds on Earth");
+   	 }
+    }
+}
