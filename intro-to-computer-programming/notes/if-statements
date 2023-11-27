@@ -1,0 +1,99 @@
+import javax.swing.*;
+public class Main
+{
+    public static void main(String[] args)
+    { //everything in between the curly braces is a block!
+   	 //Body
+   	 //if statements are control statements
+   	 //Make sure # lines are on for BlueJ
+  	 
+   	 //Simulation of the magic 8 ball
+   	 String question=JOptionPane.showInputDialog("What is your question?");
+   	 JOptionPane.showMessageDialog(null, "Thinking...");
+  	 
+   	 int random=(int)(Math.random()*10+1); //this will generate a random # from 1 to 10
+   	 //* (multiplying) 10 is HOW MANY numbers that will generate & the +1 is the smallest #
+   	 //(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+   	 //Practice: generat a random # from 15 to 20
+   	 // int practice=(int)(Math.random()*6+15); //15, 16, 17, 18, 19, or 20
+
+   	 //Control structure (if statement): controls what code will be executed!
+   	 //if statement must contain a data type
+   	 if(random==1) //notice ==, in the () is known as a BOOLEAN CONDITION -->
+   	 //true or false
+   	 { //control when to execute this block, if the statement is false this
+   		 //block would get skipped, if true it will
+   		 JOptionPane.showMessageDialog(null, "Hazy, ask again later");
+   	 }
+   	 if(random==2)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "Yes, definitely!");
+   	 }
+   	 if(random==3)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "I don't know!");
+   	 }
+   	 if(random==4)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "No!");
+   	 }
+   	 if(random==5)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "I can't predict right now");
+   	 }
+   	 if(random==6)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "Probably not!");
+   	 }
+   	 if(random==7)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "Ask again later");
+   	 }
+   	 if(random==8)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "I'll circle back to that later");
+   	 }
+   	 if(random==9)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "Error!");
+   	 }
+   	 if(random==10)
+   	 {
+   		 JOptionPane.showMessageDialog(null, "Science points to yes!");
+   	 }
+   	 //This statement has no control, so it will always execute
+   	 JOptionPane.showMessageDialog(null, "Thanks for playing, see you later");
+
+   	 if(random>=100); //this is known as a DO NOTHING STATEMENT, want to avoid! Difficult bug to find
+   	 //>= means greater than or equal to
+   	 {
+   		 JOptionPane.showMessageDialog(null, "This should never print, but always does? Why");
+   	 }
+   	 //The above is equivalent to the code below
+   	 if(random>=100)
+   	 {
+   		 ; //doing nothing
+   	 }
+   	 JOptionPane.showMessageDialog(null, "This should never print, but always does? Why");
+
+   	 //If the if statement only controls ONE line, a BLOCK is not needed
+   	 if(random !=10) //!=reads as the random #, does NOT EQUAL 10 (unequal to 10)
+   	 {
+   		 if(random<8)
+   		 {
+       		 if(random>4)
+       		 {
+           		 if(random==5)
+           		 {
+               		 System.out.println("The random number is "+random);
+           		 }
+       		 }
+   		 }
+   	 }
+
+   	 //This line has no control over it, it will always happen
+   	 System.out.println("The random number is not 10, it is "+random);
+
+   	 //RELATIONAL OPERATORS: ==, !=, >=, <=, <, > (these are used w/ int, double, & boolean, but NOT w/ Strings)
+    }
+}
