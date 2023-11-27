@@ -1,0 +1,279 @@
+//⭐ DO NOT USE ! ⭐
+
+import com.badlogic.gdx.ApplicationAdapter; //Render images
+import com.badlogic.gdx.Gdx; //Audio & graphics
+import com.badlogic.gdx.Graphics; //Fullscreen display mode & monitor
+import com.badlogic.gdx.graphics.Color; //Color
+import com.badlogic.gdx.Input.Keys; //Press buttons & keys
+import com.badlogic.gdx.Screen; //Menu, settings, & game screen
+
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.utils.Array;
+public class Layout {
+    /*Current issues (need to figure out 😟):
+    -Determine how keyInput() controls each of the pieces
+    -Figure out how to select a certain chess piece in one player's turn
+    --> Ex: player 1 selecting starter, but player 2 selecting mediator
+    -Get exact location (position X & Y) to determine if bridger() can be used*/
+
+    /*Get the position of the current piece
+    Check which piece it is
+    Use 2nd 2D array to set all the possible positions to true
+    Everything else is false*/
+    
+    //Board
+    private int[][] board;
+    public static final int WIDTH = 6;
+    public static final int HEIGHT = 6;
+    public static final int EMPTY = 0;
+
+    //Graphics & menu
+    private Array<Texture> images;
+    // private Gamestate gamestate; --> 2048 enum class --> gamestate.MENU
+    private Texture playButton;
+    private Texture tutorialButton;
+
+    //Pieces (player 1 - purple)
+    private int ctrA; //Keeps track of scoring for win() method
+    //**CHANGE DATA TYPE**
+    private int starterA;
+    private int mediatorA;
+    private int bridgerA;
+    private int defenderA;
+    private int magicianA;
+    private int firemancerA;
+
+    //Pieces (player 2 - gold)
+    private int ctrB;
+    private int starterB;
+    private int mediatorB;
+    private int bridgerB;
+    private int defenderB;
+    private int magicianB;
+    private int firemancerB;
+
+    public void board() {
+        board = new int[WIDTH][HEIGHT];
+        images = new Array<Texture>();
+        // images.add(new Texture(Gdx.files.internal("pawn.png")));
+
+        //Sets up the board for both player 1 & 2
+        //Player 1
+        board[4][0] = starterA;
+        board[4][1] = mediatorA;
+        board[4][2] = starterA;
+        board[4][3] = starterA;
+        board[4][4] = mediatorA;
+        board[4][5] = starterA;
+        //
+        board[5][0] = bridgerA;
+        board[5][1] = defenderA;
+        board[5][2] = magicianA;
+        board[5][3] = firemancerA;
+        board[5][4] = defenderA;
+        board[5][5] = bridgerA;
+
+        //Player 2
+        board[1][0] = starterB;
+        board[1][1] = mediatorB;
+        board[1][2] = starterB;
+        board[1][3] = starterB;
+        board[1][4] = mediatorB;
+        board[1][5] = starterB;
+        //
+        board[0][0] = bridgerB;
+        board[0][1] = defenderB;
+        board[0][2] = magicianB;
+        board[0][3] = firemancerB;
+        board[0][4] = defenderB;
+        board[0][5] = bridgerB;
+    }  
+
+    public static boolean playerA(int inputA) {
+        boolean check = false;
+        return check;
+    }
+
+    public static boolean playerB(int inputB) {
+        boolean check = false;
+        return check;
+    }
+
+    public void starter() {
+        //Can move 1 space forward
+        //Takes out other pieces that are at a diagonal
+        for(int r = 0; r < board.length; r++) {
+            for(int c = 0; c < board[0].length; c++) {
+                if(r-1 >= 0 && r+1 < board.length-1) { //if(in bounds)
+                    //if(keyInput() = up) --> key input controls the movement
+                    board[r][c] = board[r-1][c];
+                }
+            }
+        }
+    }
+
+    public void mediator() {
+        //public int mediator() --> return ctr to help determine win??
+        //Location: 2nd to last row, col 1 & 4
+
+        //Can TECHNICALLY move anywhere
+        //Takes out other pieces that are clustered together
+
+        //Example:
+        //If player 2's pieces occupy more than 3 spaces in either
+        //rows 3 OR 4, then the mediator
+
+        /*
+        -If player 2’s pieces occupy more than 3 spaces in either rows 3 OR 4, then player 1’s mediator can take out 2 of player 2’s pieces that are in rows 3 OR 4
+        -After, player 1’s mediator is automatically removed from the board because it only has one use*/
+
+        int ctr = 0;
+    }
+
+    public void bridger() {
+        //Location: last row, col 0 & 5
+        //Allows for player to cross over their own pieces
+        //if(turn == playerA) {
+        //temp = playerA;
+        //}
+
+        for(int r = 0; r < board.length; r++) {
+            for(int c = 0; c < board[0].length; c++) {
+                if(board[r][c] == starterA) {
+                }
+            }
+        }
+
+    }
+
+    public void defender() {
+        //Location: last row, col 1 & 4
+        //Can block ONE mediator's attack
+        //After it is used, it gets removed from the board
+    }
+
+    public void magician() {
+        //Location: last row, col 2
+        //Can teleport ANYWHERE on the board
+        //Can't teleport to a spot that is already occupied (either by their own pieces or the other player's pieces)
+    }
+
+    public void firemancer() {
+        //Location: last row, col 3
+    }
+
+    public void boardLayout() {
+        for(int r = 0; r < board.length; r++) {
+            for(int c = 0; c < board[0].length; c++) {               
+                if(r % 2 == 0 && c % 2 == 0) {
+                }
+
+                if(r % 2 == 1 && c % 2 == 1) {
+                }
+            }
+        }
+    }
+
+    public void keyInput() {
+        //Mouse
+        if(Gdx.input.isKeyPressed(Keys.UP)) {
+            goUp();
+        }
+
+        if(Gdx.input.isKeyPressed(Keys.DOWN)) {
+            goDown();
+        }
+
+        if(Gdx.input.isKeyPressed(Keys.LEFT)) {
+            goLeft();
+        }
+
+        if(Gdx.input.isKeyPressed(Keys.RIGHT)) {
+            goRight();
+        }
+    }
+
+    public void goUp() {
+        int row = zeroRow();
+        int col = zeroCol();
+        if(row == EMPTY && col == EMPTY) {
+            board[row][col] = board[row-1][col];
+        }       
+    }
+
+    public void goDown() {
+        int row = zeroRow();
+        int col = zeroCol();
+        if(row == EMPTY && col == EMPTY) {
+            board[row][col] = board[row+1][col];
+        }       
+    }
+
+    public void goLeft() {
+        int row = zeroRow();
+        int col = zeroCol();
+        if(row == EMPTY && col == EMPTY) {
+            board[row][col] = board[row][col-1];
+        }       
+    }
+
+    public void goRight() {
+        int row = zeroRow();
+        int col = zeroCol();
+        if(row == EMPTY && col == EMPTY) {
+            board[row][col] = board[row][col+1];
+        }
+    }
+
+    public int zeroRow() {
+        return -1;
+    }
+
+    public int zeroCol() {
+        return -1;
+    }
+
+    public boolean canMove() {
+        //Sees if the player can move to the place they want
+        //Returns true if there is nothing (their own pieces) obstructing their path
+        boolean move = false;
+
+        return move;
+    }
+
+    public boolean canTake() {
+        //Sees if the piece the player wants to take isn't their own
+        boolean take = false;
+        return take;
+    }
+
+    public boolean win() {
+        //If one player captures 1 mediator, 1 [piece], & 1 [piece]
+        //If both players end with less than 3 pieces, it is considered a standstill (draw)
+        boolean temp = false;
+        boolean player1 = true;
+        boolean player2 = true;
+        //Use ctrA & ctrB to keep track of scoring
+        if(ctrA >= 3) {
+            temp = player1;
+            System.out.println("Player 1 wins!");
+        }
+        if(ctrB >= 3) {
+            temp = player2;
+            System.out.println("Player 2 wins!");
+        }
+        return temp;
+    }
+
+    public void turn() {
+        while(win() == false) {
+            //playerA(inputA);
+            //playerB(inputB);
+        }
+    }
+
+    public void render() { //print()
+        //Prints everything that needs to be printed
+    }
+}
