@@ -1,0 +1,11 @@
+public class Tester
+{
+    public static void main(String[] args)
+    {
+   	 Working w = new Working("countries.txt");
+   	 w.readFile();
+   	 w.printCountries();//debug, make sure read file worked!
+   	 // w.fillFreqArray();
+   	 // w.debugFreq();
+    }
+}

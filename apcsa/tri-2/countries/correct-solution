@@ -1,0 +1,96 @@
+import java.util.*;//Scanner
+import java.io.*; //File
+public class Working
+{
+    private Scanner reader;
+    private String[] countries;
+    private int logLength;//not going to fill countries to capacity
+    private int[] freq; //this will be filled up so NO companion variable needed
+    public final int LETTERS_OF_ALPHABET = 26;
+    public char[] alphabet;
+    public Working(String fileName)
+    {
+   	 countries = new String[500];//there are not more than 500 countries
+   	 logLength = 0; //there are no Strings in the array yet
+   	 freq = new int[LETTERS_OF_ALPHABET]; //default is 0
+   	 try{
+   		 reader = new Scanner(new File(fileName));
+   	 }
+   	 catch(Exception e)
+   	 {
+   		 System.out.println("File not found! Try again.");    
+   	 }
+   	 // int index = 0;
+   	 // alphabet = new char[LETTERS_OF_ALPHABET];
+   	 // for(int i = 'a'; i <= 'z'; i++)
+   	 // {
+   	 // alphabet[index] = (char)i;
+   	 // index++;
+   	 // }
+    }
+
+    public void readFile()
+    {
+   	 while(reader.hasNextLine())//while the file has more tokens separated by a
+   		 space
+   	 {
+   		 String country = reader.nextLine().toLowerCase(); //read the next token
+   		 countries[logLength] = country; //logLength also controls the index
+   		 //of the array in this loop
+   		 logLength++; //increase because we have added a country to the array
+   	 }
+    }
+
+    public void printCountries()
+    {
+   	 for(int i = 0; i < logLength; i++)//not using countries.length, because
+   	 //it is not filled to capacity
+   	 {
+   		 String temp = countries[i];
+   		 System.out.println(temp);
+   	 }
+    }
+
+    public void fillFreqArray()
+    {
+   	 for(int i = 0; i < logLength; i++)
+   	 {
+   		 String temp = countries[i];
+   		 for(int j = 0; j < temp.length(); j++)
+   		 {
+       		 // int index = getIndexOfAlpha(temp.charAt(j));
+       		 // if(index != -1)//if it is a letter the -1 was not returned
+       		 // freq[index]++;
+       		 char letter = temp.charAt(j);
+       		 int index = letter - 'a';//gets the proper index from 0 to 25 using the ASCII values
+       		 if(letter >= 'a' && letter <= 'z') {//can't increase the spaces or
+           		 apostrophes
+           		 freq[index]++;
+       		 }
+   		 }
+   	 }
+    }
+
+    public void debugFreq()
+    {
+   	 for(int i = 0; i < freq.length; i++)
+   	 {
+   		 int temp = freq[i];
+   		 System.out.println("The number of " + (char)(i + 'a') + "'s is " +
+       		 temp);
+   		 // System.out.println("The number of " + alphabet[i] + "'s is " + temp);
+   	 }
+    }
+
+    public int getIndexOfAlpha(char letter)
+    {
+   	 for(int i = 0; i < alphabet.length; i++)
+   	 {
+   		 if(alphabet[i] == letter)
+   		 {
+       		 return i;    
+   		 }
+   	 }
+   	 return -1; //if the character is not a letter
+    }
+}
