@@ -1,0 +1,88 @@
+public class Student {
+    private int numOfClasses;
+    private int numOfPoints;
+    private boolean hasF;
+    private double GPA;
+
+    public Student() {
+   	 numOfClasses=0;
+   	 numOfPoints=0;
+   	 hasF=false;
+   	 GPA=0.0;
+    }
+
+    public void addGrade(String grade) {
+   	 int ctr=0;
+
+   	 switch(grade) {
+   		 case "A":
+       		 numOfClasses++;
+       		 numOfPoints+=4;
+       		 ctr++;
+       		 GPA=numOfPoints/ctr;
+       		 break;
+
+   		 case "B":
+       		 numOfClasses++;
+       		 numOfPoints+=3;
+       		 ctr++;
+       		 GPA=numOfPoints/ctr;
+       		 break;
+
+   		 case "C":
+       		 numOfClasses++;
+       		 numOfPoints+=2;
+       		 ctr++;
+       		 GPA=numOfPoints/ctr;
+       		 break;
+
+   		 case "D":
+       		 numOfClasses++;
+       		 numOfPoints+=1;
+       		 ctr++;
+       		 GPA=numOfPoints/ctr;
+       		 break;
+
+   		 case "F":
+       		 numOfClasses++;
+       		 numOfPoints+=0;
+       		 ctr++;
+       		 GPA=numOfPoints/ctr;
+       		 hasF=true;
+       		 break;
+
+   		 default: System.out.println("Does not work");
+       		 break;
+   	 }
+    }
+
+    public double getGPA() {
+   	 return GPA;
+    }
+
+    public String checkEligibility(String check) {
+   	 char ch=check.charAt(0);
+
+   	 if(numOfClasses>=4 && GPA>=2.0 && hasF==false) { //Eligible
+   		 String working="Eligible";
+   	 }
+
+   	 else if(numOfClasses<=4) {
+   		 String lessThan="Ineligible, taking less than 4 classes.";
+   	 }
+
+   	 else if(GPA<2.0) {
+   		 String below="Ineligible, gpa below 2.0.";
+   	 }
+
+   	 else if(numOfClasses>=4 && GPA>=2.0 && hasF==true) {
+   		 String gradeF="Ineligible, gpa above 2.0 but has F grade";
+   	 }
+
+   	 else {
+   		 String none="Ineligible, gpa below 2.0 and has F grade";
+   	 }
+
+   	 return check;
+    }
+}

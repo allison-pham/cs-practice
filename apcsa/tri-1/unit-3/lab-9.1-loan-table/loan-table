@@ -1,0 +1,62 @@
+import apcslib.*;
+public class LoanTable {
+    private double loan;
+    private int years;
+    private double lowRate; //As a percent
+    private double highRate;
+
+    public static final double INCREMENT=0.25;
+    public static final int MONTHS=12;
+    //They're static b/c they're used throughout the class
+
+    public LoanTable() {
+   	 loan=0;
+   	 years=0;
+   	 lowRate=0;
+   	 highRate=0;
+    }
+
+    public LoanTable(double theLoan, int theYears, double theLowRate, double theHighRate) {
+   	 loan=theLoan;
+   	 years=theYears;
+   	 lowRate=theLowRate;
+   	 highRate=theHighRate;
+    }
+
+    public void setLowRate(double lowR) {
+   	 lowRate=lowR;
+    }
+
+    public void setHighRate(double highR) {
+   	 highRate=highR;
+    }
+
+    public double print() { //Print table
+   	 double p=loan;
+   	 //Reassigned to make variables easier to keep track of
+   	 double k=(double) (lowRate/100)/12.0;
+   	 double n=(double) years*12;
+   	 double c=Math.pow((1+k), (double) n);
+   	 //Used Math.pow to make "n" the exponent
+   	 double a=(p * k * c) / (c-1);
+
+   	 System.out.print(Format.left ("Annual Interest Rate: ", 20));
+   	 System.out.println(Format.right ("Monthly Payment: ", 20));
+  	 
+   	 while(lowRate<=highRate) {    
+   		 System.out.print(Format.left (lowRate, 20, 2));
+   		 System.out.println(Format.right (a, 20, 2));
+   		 lowRate+=INCREMENT;
+   		 //Increase by 0.25 after the low interest rate outputs to recalculate
+
+   		 k=(double) (lowRate/100)/12.0;
+   		 n=(double) years*12;
+   		 c=Math.pow((1+k), (double) n);
+   		 a=(p * k * c) / (c-1);
+   		 //k, n, c, & a are put again for a to be recalculated
+   		 //double is included to avoid int division
+   	 }
+
+   	 return a;
+    }
+}
