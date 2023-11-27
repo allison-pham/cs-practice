@@ -1,0 +1,23 @@
+import chn.util.*;
+public class SandBox {
+	public static void main(String[] args) {
+    	//Notes:
+    	//A class defines attributes
+    	//ConsoleIO (String delims), delims = when to read a new word
+    	//readToken() reads everything until there is a delim
+    	//readLine() reads everything
+
+    	ConsoleIO input=new ConsoleIO();
+    	System.out.println("What is your first and last name?");
+    	String fName=input.readToken();
+    	String lName=input.readToken();
+    	//Echo back
+    	System.out.println("Your first name is "+fName+" and your last name is "+lName+".");
+
+    	System.out.println("What is your favorite number?");
+    	int number=input.readInt();
+    	System.out.println("Your favorite number is "+number+".");
+    	//MCQ
+    	System.out.println("Your age in 5 years is "+(5+number));
+	}
+}
