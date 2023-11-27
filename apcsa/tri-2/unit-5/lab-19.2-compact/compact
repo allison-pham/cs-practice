@@ -1,0 +1,81 @@
+import java.io.*;
+import java.util.*;
+public class Compact {
+    private Scanner reader;
+    private File fileName; //fileInput
+    private int[] arr; //array
+    private int logicalLength;
+    private boolean run;
+    public Compact(String fileName) {
+   	 arr = new int[0];
+   	 logicalLength = 1; //Initialize. set to 1
+   	 run = false;
+   	 try {
+   		 reader = new Scanner(new File(fileName));
+   	 }
+   	 catch (Exception e) {
+   		 System.out.println("File not found!");
+   	 }
+    }
+
+    public void readAndPrintFile() {
+   	 while(reader.hasNextInt()) {
+   		 arr[logicalLength] = reader.nextInt();
+   		 logicalLength++;
+   	 }
+    }
+
+    public void compact() {
+   	 // int i = 0;
+   	 // int j = 0;
+   	 // while(i < logicalLength)
+   	 // {
+   	 // if(arr[i] != 0)
+   	 // {
+   	 // arr[j] = arr[i];
+   	 // j++;
+   	 // }
+   	 // }
+
+   	 // while(j < logicalLength)
+   	 // {
+   	 // arr[j] = 0;
+   	 // j++;
+   	 // }
+   	 // logicalLength = j;
+   	 int i = hasZeroes();
+   	 while(i != -1) {
+   		 for(int j = i; j<logicalLength; j++) {
+       		 arr[j] = arr[j+1];
+   		 }
+   		 arr[logicalLength - 1] = -1;
+   		 logicalLength-=1;
+   		 i = hasZeroes();
+   	 }
+   	 run = true;
+    }
+
+    public void print() {
+   	 String s = "";
+   	 if(!run) {
+   		 System.out.print("Before: ");
+   	 }
+   	 if(run) {
+   		 System.out.print("After: ");
+   	 }
+
+   	 for(int k = 0; k<logicalLength; k++) {
+   		 s+=arr[k] + ", ";
+   	 }
+   	 System.out.println(s.substring(0, s.length()));
+    }
+
+    private int hasZeroes() {
+   	 for(int i = 0; i<arr.length; i++) {
+   		 if(arr[i] == 0) {
+       		 return i;
+   		 }
+   	 }
+   	 return -1;
+    }
+}

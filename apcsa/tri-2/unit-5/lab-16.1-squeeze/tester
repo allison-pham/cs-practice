@@ -1,0 +1,6 @@
+public class Tester {
+    public static void main(String[] args) {
+   	 Squeeze sqFile = new Squeeze("before.txt");
+   	 sqFile.squeezeMethod();
+    }
+}

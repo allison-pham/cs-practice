@@ -1,0 +1,168 @@
+import apcslib.*;
+import java.io.*;
+import java.util.*;
+public class Statistics {
+    //Array to hold values from file
+    private static Scanner reader;
+    private File stats;
+    private int[] allNums;
+    private static double[] values;
+    private static double numOfValues;
+    private int logLength;
+    private static int ctr;
+    private int x;
+    private final int MAX_AMOUNT=101;
+    public Statistics(String stats) {
+   	 allNums = new int[2000];
+   	 values = new double[2000]; //Increased b/c of votes.txt file
+   	 numOfValues = 0;
+   	 logLength = 0;
+   	 ctr = 0;
+   	 x = 0;
+   	 int temp = 0;
+   	 try {
+   		 reader = new Scanner(new File(stats));
+   	 }
+   	 catch(Exception e) {
+   		 System.out.println("File not found.");
+   	 }
+
+   	 while(reader.hasNext()) {
+   		 numOfValues = reader.nextInt();
+   		 // if(numOfValues < MAX_AMOUNT) {
+   		 values[temp] = numOfValues;
+   		 temp++;
+   		 // }
+   	 }
+   	 x = temp;
+    }
+
+    public void calcAverage() { //Need while loop since it will stop after there isn't anymore input
+   	 //Note: get length to serve as the "max value" for the for loop b/c it might be similar to Strings in this way
+   	 double total = 0;
+   	 double avg = 0;
+   	 int count = 0;
+   	 //V1:
+   	 // while(reader.hasNext()) {
+   	 //int temp = reader.nextInt();
+   	 //total+=temp;
+   	 // }
+
+   	 //V2:
+   	 // for(int i = 0; i<values.length; i++) {
+   	 // logLength++;
+   	 // }
+   	 // for(int i = 0; i<logLength; i++) {
+   	 // total+=values[i];
+   	 // count++;
+   	 // }
+
+   	 //V3:
+   	 for(int i = 0; i<x; i++) {
+   		 total+=values[i];
+   		 count++;
+   	 }
+   	 avg = total / count;
+   	 System.out.println("The average is "+ Format.left(avg, 0, 2));
+    }
+
+    public double calcAverageTemp() {
+   	 double total = 0;
+   	 double avg = 0;
+   	 int count = 0;
+   	 for(int i = 0; i<x; i++) {
+   		 total+=values[i];
+   		 count++;
+   	 }
+   	 avg = total / count;
+   	 System.out.println("The average is "+ Format.left(avg, 0, 2));
+   	 return avg;
+    }
+
+    public void calcStandardDeviation() {
+   	 double sumOfSqDiff = 0;
+   	 double avg = calcAverageTemp();
+   	 double total = 0;
+   	 double calc = 0;
+   	 // while(reader.hasNext()) {
+
+   	 // for(int i = 0; i<values.length; i++) {
+   	 for(int i = 0; i<x; i++) {
+   		 sumOfSqDiff = 0;
+   		 sumOfSqDiff = values[i] - avg;
+   		 sumOfSqDiff = sumOfSqDiff*sumOfSqDiff;
+   		 total+=sumOfSqDiff;
+   	 }
+   	 // calc = total / (values.length - 1);
+   	 calc = total / (x - 1+1);
+   	 calc = Math.sqrt(calc);
+   	 System.out.println("\nThe standard deviation is " + Format.left(calc, 0, 2));
+    }
+
+    public void calcMode() { //Frequency
+   	 //Ex) 5 5 7 7 --> need something to count/store BOTH. If multiple modes, print ALL
+   	 int ctr = 0; //Stores occurences of nums
+   	 int num = 0;
+   	 for(int i = 0; i<=MAX_AMOUNT; i++) { //Not values[i]
+   		 // int currentNum = 0; //Checks the new nums - will have the new num at index "i"
+   		 int ctrCurrent = 0; //For "currentNum". In for loop to reset
+   		 // if(temp == values[i]) { //(Will be true in every case) if(current value == i's index)
+   		 // for(int k = 0; k<values.length; k++) { //Not values[i]
+   		 //Two for loops to compare values
+   		 for(int k = 1; k<x; k++) {
+       		 if(ctrCurrent >= ctr) {
+           		 ctr = ctrCurrent;
+           		 num = i; //Stores num that has the most in "ctr"
+       		 }
+       		 if(values[k] == i) { //Not values[i]
+           		 //Stays IN for loop until finished checking if values are the same
+           		 ctrCurrent++;
+       		 }
+       		 // if(ctrCurrent == ctr) { //if modes are the same
+       		 // num = values[i];
+       		 if(ctrCurrent < ctr) { //Nothing will happen
+       		 }
+   		 }
+   	 }
+   	 // if(ctr == 0 && ctrCurrent == 0) {
+   	 // num = values[i];
+   	 // break;
+   	 // }
+   	 System.out.println("\nThe mode is " + num);
+   	 // if((num == values[0]) || (currentNum == num)) { //Checks if(num == 1st index val) || if(new num == current num)
+   	 // if(values[i] == values[0]) { //Stores num from 1st index (runs only once)
+   	 //values[i] instead of values b/c instance variable is an int array, not an int
+   	 // num = values[i]; //Stores 1st num into "freq"
+   	 // ctrCurrent++; //Not the official freq for mode. "ctrCurrent" is for any new num
+   	 // ctr = ctrCurrent;
+   	 // }
+   	 // if(currentNum == num) { //if statement to avoid 1st index val
+   	 // ctrCurrent++; //Not the official freq for mode
+   	 // }
+   	 // if(ctrCurrent >= ctr) {
+   	 // ctr = ctrCurrent;
+   	 // }
+   	 // else if(ctrCurrent < ctr) {
+   	 // ctrCurrent = 0;
+   	 // }
+   	 // }
+   	 // else if(currentNum != num) {
+   	 // ctrCurrent++;
+   	 // if(ctrCurrent >= ctr) {
+   	 // ctr = ctrCurrent;
+   	 // }
+   	 // }
+   	 //Ex) 5 2 1 3 5
+   	 //Need: if(new num == current num w/ highest freq)
+   	 //Reset ctr if value is greater than previous one
+    }
+
+    public void print() {
+   	 // double avg = calcAverageTemp();
+   	 // double standardDeviation = calcStandardDeviation();
+   	 // double mode = calcMode();
+   	 // System.out.println("The average is " + Format.left(avg, 0, 2));
+   	 // System.out.println("\nThe standard deviation is " + Format.left(standardDeviation, 0, 2));
+   	 // System.out.println("\nThe mode is " + Format.left(mode, 0, 2));
+    }
+}
