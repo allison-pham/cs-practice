@@ -1,0 +1,34 @@
+import chn.util.*;
+import apcslib.*;
+public class FunTester {
+    public static void main(String[] args) {
+   	 ConsoleIO input=new ConsoleIO();
+   	 System.out.println("Input a degree in Fahrenheit.");
+   	 int f=input.readInt();
+
+   	 System.out.println("Input a degree in Celsius.");
+   	 int c=input.readInt();
+
+   	 System.out.println("Input a radius to get the volume of a sphere.");
+   	 double shape=input.readDouble();
+
+   	 System.out.println("Input a value for the adjacent side (a).");
+   	 double adjacent=input.readDouble();
+
+   	 System.out.println("Input a value for the opposite side (b).");
+   	 double opposite=input.readDouble();
+
+   	 double converterFToC=Fun.FToC(f);
+   	 double converterCToF=Fun.CToF(c);
+
+   	 double sphere=Fun.getSphere(shape);
+
+   	 double hypotenuse=Fun.getHypotenuse(adjacent, opposite);
+
+   	 System.out.println(f+" F --> "+Format.left(converterFToC, 10, 2)+"C");
+   	 System.out.println(c+" C --> "+Format.left(converterCToF, 10, 2)+" F");
+
+   	 System.out.println("Radius of "+shape+". The volume of the sphere is "+Format.decimalPlaces(sphere,2));
+   	 System.out.println("The adjacent side is "+adjacent+". The opposite side is "+opposite+". The hypotenuse is "+Format.decimalPlaces(hypotenuse,2)+".");
+    }
+}

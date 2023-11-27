@@ -1,0 +1,32 @@
+import chn.util.*;
+import java.text.*;
+public class Lab5Quadratic{
+    public static void main(String[] args) {
+   	 ConsoleIO input=new ConsoleIO(); //Input
+
+   	 //Prompts
+   	 System.out.println("Hello! This is a quadratic formula calculator.");
+   	 System.out.println("What is your A value?");
+   	 int valueA=input.readInt();
+   	 System.out.println("What is your B value?");
+   	 int valueB=input.readInt();
+   	 System.out.println("What is your C value?");
+   	 int valueC=input.readInt();
+
+   	 //Quadratic formula setup
+   	 final int NEGATIVE_VALUE_B=0-valueB; //-b
+   	 final int SQUARE_VALUE_B=valueB*valueB; //b^2
+   	 final int MULTIPLY_VALUE_4AC=4*valueA*valueC; //4ac
+   	 final int MULTIPLY_VALUE_2A=2*valueA; //2a
+   	 final double SQUARE_ROOTING=Math.sqrt(SQUARE_VALUE_B-MULTIPLY_VALUE_4AC); //Square root b^2-4ac
+
+   	 //+/-: + (addition)
+   	 double solvePlus=(NEGATIVE_VALUE_B+SQUARE_ROOTING)/MULTIPLY_VALUE_2A;
+
+   	 //+/-: - (subtraction)
+   	 double solveMinus=(NEGATIVE_VALUE_B-SQUARE_ROOTING)/MULTIPLY_VALUE_2A;
+  	 
+   	 System.out.println("The output from the calculator for addition in +/- is: "+solvePlus);
+   	 System.out.println("The output from the calculator for subtraction in +/- is: "+solveMinus);
+    }
+}

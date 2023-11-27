@@ -1,0 +1,61 @@
+import chn.util.*;
+import apcslib.*;
+import java.awt.Color;
+public class Tester {
+    public static void main(String[] args) {
+   	 // ConsoleIO input=new ConsoleIO();
+   	 // System.out.println("What is the radius, x and y:");
+   	 // double radiusValue=input.readDouble();
+   	 // double xValue=input.readDouble();
+   	 // double yValue=input.readDouble();
+
+   	 // Circle allison=new Circle(radiusValue, xValue, yValue);
+   	 // allison.draw();
+
+   	 // double area=allison.getArea(); //Must save it into an actual variable
+   	 // double perimeter=allison.getPerimeter();
+
+   	 // System.out.println("The area of the circle is "+area);
+   	 // System.out.println("The perimeter of the circle is "+perimeter);
+
+   	 // for(int i=0; i<100; i++) {
+   	 // Circle circle1=new Circle(10*i,-50,50);
+   	 // Circle circle2=new Circle(10*i,-50,-50);
+   	 // Circle circle3=new Circle(10*i,50,50);
+   	 // Circle circle4=new Circle(10*i,50,-50);
+   	 // circle1.draw();
+   	 // circle2.draw();
+   	 // circle3.draw();
+   	 // circle4.draw();
+   	 // }
+
+   	 Circle c1=new Circle(100, 0, 0);
+   	 Circle copy=new Circle(c1); //Copy of the original
+   	 //c1.draw();
+   	 for(int i=0; i<5; i++) {
+   		 int red=(int)(Math.random()*256+0);
+   		 int green=(int)(Math.random()*256+0);
+   		 int blue=(int)(Math.random()*256+0);
+
+   		 //x coordinates are from -500 to 500
+   		 int x=(int)(Math.random()*1001-500);
+   		 int y=(int)(Math.random()*1001-500);
+
+   		 int rad=(int)(Math.random()*66+5); //5 to 70, +5 represents the least value
+   		 //Prompt: make an attribute to change the width of the pen each time
+   		 //The width is int & the dfault value is 1
+   		 int w=(int)(Math.random()*15+1);
+
+   		 c1.setColor(new Color(red, green, blue));
+   		 c1.setX(x); //Shift 10 to the right from old location
+   		 c1.setY(y);
+   		 c1.setRadius(rad);
+   		 c1.setWidth(w);
+   		 c1.draw();
+   	 }
+  	 
+   	 copy.setX(-350);
+   	 copy.setY(350);
+   	 copy.draw();
+    }
+}
