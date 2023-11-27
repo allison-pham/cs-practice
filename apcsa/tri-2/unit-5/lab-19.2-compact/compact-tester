@@ -1,0 +1,8 @@
+public class CompactTester {
+    public static void main(String[] args) {
+   	 Compact ans = new Compact("numbers.txt");
+   	 ans.compact();
+   	 ans.readAndPrintFile();
+   	 ans.print();
+    }
+}
