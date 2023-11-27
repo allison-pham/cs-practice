@@ -1,0 +1,24 @@
+#6) Problem (Guess the number) : We probably have all played this game, were one person thinks
+#of a number in a given range, and the other person tried to guess that number. If their guess is
+#too high, then they are told their guess is too high and they can try again. Alternatively, if their
+#guess is too low, then they are told their guess is too low and they can try again. These steps
+#repeat until they guess correctly.
+#Rules –
+#1. The computer should randomly generate an integer from 0 to 1000
+#2. Ask the player to enter a guess between 0 to 1000
+#3. Evaluation
+#a. Guess too high, print out “Guess is too high, try again”
+#b. Guess too low, print out “Guess is too low, try again”
+#c. Guess is correct, print out “YES, that’s correct”
+import random
+def guessNum(guess):
+    print("Guess a random number between 0 and 1,000.")
+    randomNum = random.randint(0, 1001)
+
+    while guess != randomNum:
+        if guess > randomNum:
+            tryAgain = int(input("Guess is too high. Try again."))
+        elif guess < randomNum:
+            tryAgain = input("Guess is too low. Try again.")
+        else:
+            print("YES, that's correct.")

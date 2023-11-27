@@ -1,0 +1,14 @@
+#3) Problem (isPalindrome) : Write a function called isPalindrome( str1 ) that receives a
+#string and returns True if str1 is a palindrome, and False otherwise. A palindrome is a
+#string that reads the same forward as it does backward.
+#EXAMPLE
+#isPalindrome ( “BANANA”) => returns False
+#isPalindrome (“KAYAK”) = > return True
+def isPalindrome(str1):
+    return str1 == str1[::-1]
+
+'''def isPalindrome(str1):
+    #if palindrome: return True
+    if str1 == str1[::-1]:
+        return True
+    return False'''

@@ -1,0 +1,27 @@
+#create a program that takes in 1 user input: square feet of a home.
+#This program should output the price of how much this home is worth by location.
+
+#Riverside: $367
+#Los Angeles: $713
+#San Diego: $710
+sq_ft = input("What is the square feet of your home?")
+
+# Error: need to cast
+riverside = int(sq_ft) * 367
+los_angeles = int(sq_ft) * 713
+san_diego = int(sq_ft) * 710
+
+print(f"Riverside: ${riverside}")
+print(f"Los Angeles: ${los_angeles}")
+print(f"San Diego: ${san_diego}")
+
+# Answer
+'''square_feet = float(input("What is the square feet of your home?"))
+
+riverside_price = square_feet * 367
+los_angeles_price = square_feet * 713
+san_diego_price = square_feet * 710
+
+print(f"Riverside home price: ${riverside_price}")
+print(f"Los Angeles home price: ${los_angeles_price}")
+print(f"San Diego home price: ${san_diego_price}")'''

@@ -1,0 +1,76 @@
+#Answer for HalfList
+'''#Use modulo to differentiate between even/odd lengths
+def HalfList(myList):
+    halfIndex = (len(myList) // 2) #Finds the index of the middle value
+    if len(myList) % 2 == 0: #Even
+        newList = myList[0:halfIndex]
+        return newList
+    else: #Odd
+        newList = myList[0:halfIndex + 1]
+        return newList
+
+        
+exampleList = [1,2,3,4,5,6]
+halfExampleList = HalfList(exampleList)
+print(halfExampleList)'''
+
+#Answer for Minecraft Crafting
+'''[ ] [ ] [ ]
+[ ] [ ] [ ]
+[ ] [ ] [ ]
+
+#Problem: Create a diamond pick-axe
+#Mine for diamonds
+#To mine for diamonds, you need an iron pick-axe
+#To mine for iron, you need a stone pick-axe
+#To mine for stone (cobblestone), you need a wooden pick-axe
+#To get wood, punch trees'''
+
+#Answer for No Negatives
+'''#Create a function that given a list of integers, change all negative values to 0
+#It returns the new list
+#The functiont akes in 1 parameter, initial_list which has positive/negative integers
+
+def ChangeToPositive(initial_list):
+    #Write a plan:
+    #Loop through each integer in initial_list
+        #If the integer is < 0
+            #Change it to 0
+    #Return the list
+    #newList = []
+    #for i in range(len(initial_list)):
+        #if initial_list[i] < 0:
+            #initial_list[i] = 0
+            #newList.append(initial_list[i])
+    #return newList
+    
+    for index in range(len(initial_list)):
+        #If you want to access elements inside the list, don't use range
+        #If you want to modify elements inside the list, use range
+        if initial_list[index] < 0:
+            initial_list[index] = 0
+    return initial_list
+
+
+list1 = [100, -9, 84, 51, -2]
+list2 = [50, 3, -79]
+
+newList1 = ChangeToPositive(list1)
+print(newList1)
+
+newList2 = ChangeToPositive(list2)
+print(newList2)'''
+
+#Answer for Quadratic Formula
+'''#Create a function that given inputs a, b, & c, use the quadratic formula to find x
+def QuadraticFormula(a, b, c):
+    #Formula: (-b +/- sqrt(b^2 - 4ac)) / 2a
+    x_pos = ((b * (-1)) + (b**2 - 4 * a * c)**(1/2)) / (2 * a)
+    x_neg = ((b * (-1)) - (b**2 - 4 * a * c)**(1/2)) / (2 * a)
+    return x_pos, x_neg #Can return multiple numbers
+
+#y = x^2 + 4x + 4
+#y = x^2 + 6x + 8
+x1, x2 = QuadraticFormula(1, 6, 8) #Order of parameters matters
+print(x1)
+print(x2)'''

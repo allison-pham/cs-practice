@@ -1,0 +1,28 @@
+students = {}
+
+ask = ""
+while ask != "quit":
+    print("\nRoster:")
+    if not students:
+        print("Empty")
+    else:
+        for name, grade in students.items():
+            print(f"{name} - {grade}")
+
+    ask = input('\nEnter "add", "change", or "quit".\n').lower()
+
+    if ask == "add":
+        name = input("Type the student name: ")
+        grade = input("Type the grade: ")
+        students[name] = grade
+    elif ask == "change":
+        name = input("Type the student name: ")
+        if name in students:
+            current_grade = students[name]
+            print(f"Current grade: {current_grade}")
+            new_grade = input("Type the new grade: ")
+            students[name] = new_grade
+        else:
+            print(f"Student {name} not found in the roster.")
+    elif ask != "quit":
+        print("Invalid input. Please enter 'add', 'change', or 'quit'.")
