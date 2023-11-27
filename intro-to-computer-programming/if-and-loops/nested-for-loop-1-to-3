@@ -1,0 +1,61 @@
+import javax.swing.*;
+import java.text.*;
+public class NestedForLoop1To3
+{
+    public static void main(String[] args)
+    {
+   	 //Problem 1: Rows
+   	 int ask=Integer.parseInt(JOptionPane.showInputDialog("How many rows do you want?"));
+   	 while(!(ask>=1))
+   	 {
+   		 System.out.print("Error!");
+   		 ask=Integer.parseInt(JOptionPane.showInputDialog("Enter a positive number."));
+   	 }
+   	 System.out.println("");
+   	 for(int a=1; a<=ask; a++)
+   	 {
+   		 for(int b=1; b<=ask; b++)
+   		 {
+       		 System.out.print(b+"");
+   		 }
+   		 System.out.println();
+   	 }
+
+   	 //Problem 2: Printing Backwards
+   	 int prompt=Integer.parseInt(JOptionPane.showInputDialog("How many rows do you want?"));
+   	 while(!(prompt>=1))
+   	 {
+   		 System.out.print("Error!");
+   		 prompt=Integer.parseInt(JOptionPane.showInputDialog("Enter a positive number."));
+   	 }
+   	 System.out.println("");
+   	 for(int c=1; c<=prompt; c++)
+   	 {
+   		 for(int d=c; d>=1; d--)
+   		 {
+       		 //d++ makes it add 2 b/c d++ already exists
+       		 System.out.print(d+" ");
+   		 }
+   		 System.out.println();
+   	 }
+
+   	 //Problem 3: Measurements
+   	 int length=1;
+   	 int width=1;
+   	 int perimeter=0;
+   	 int area=0;
+   	 System.out.println("Length\tWidth\tPerimeter\tArea\n");
+   	 for(int e=1; e<=10; e++)
+   	 {
+   		 for(int f=1; f<=10; f++)
+   		 {
+       		 perimeter=length+length+width+width;
+       		 area=length*width;
+       		 System.out.println(length+"\t"+width+"\t"+perimeter+"\t"+area+"\t");
+       		 width++;
+   		 }
+   		 length++;
+   		 width=1;
+   	 }
+    }
+}

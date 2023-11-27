@@ -1,0 +1,71 @@
+import javax.swing.*;
+import java.text.*;
+public class WhileLoop4To6
+{
+    public static void main(String[] args)
+    {
+   	 //Problem #4: -1 to stop
+   	 int num=Integer.parseInt(JOptionPane.showInputDialog("Input a number"));
+   	 int ctr=0;
+   	 while(num!=-1)
+   	 {
+   		 if(num%2!=0)
+   		 {
+       		 ctr++;
+       		 System.out.println("Enter a number or -1 to quit: "+num+".");
+   		 }
+   		 else if(num%2==0)
+       		 System.out.println("Enter a number or -1 to quit: "+num+".");
+   		 num=Integer.parseInt(JOptionPane.showInputDialog("Input a number"));
+   	 }
+   	 System.out.println("You entered "+ctr+" odd numbers.");
+
+   	 //Problem #5: Name
+   	 String name=JOptionPane.showInputDialog("Input a name or XXX to stop");
+   	 int count=0;
+   	 while(!(name.equals("XXX")))
+   	 {
+   		 if(name.equalsIgnoreCase("Mary"))
+       		 count=count+1;
+   		 name=JOptionPane.showInputDialog("Input a name or XXX to stop");
+   	 }
+   	 System.out.println("You entered the name Mary "+count+" times.");
+
+   	 //Problem #6: Number
+   	 int number=Integer.parseInt(JOptionPane.showInputDialog("Input a value."));
+   	 int positiveCounter=0;
+   	 int negativeCounter=0;
+   	 int positiveSum=0;
+   	 int negativeSum=0;
+
+   	 while(number!=0)
+   	 {
+   		 if(number>0)
+   		 {
+       		 positiveSum=positiveSum+number;
+       		 positiveCounter++;
+   		 }
+   		 else if(number<0)
+   		 {
+       		 negativeSum=negativeSum+number;
+       		 negativeCounter++;
+   		 }
+   		 number=Integer.parseInt(JOptionPane.showInputDialog("Input a value."));
+   	 }
+
+   	 double positiveAverage=positiveSum/positiveCounter;
+   	 double negativeAverage=negativeSum/negativeCounter;
+   	 NumberFormat formatter=NumberFormat.getNumberInstance();
+   	 formatter.setMaximumFractionDigits(1);
+   	 formatter.setMinimumFractionDigits(1);
+   	 if(positiveAverage==0 && negativeAverage!=0)
+   		 System.out.println("There were no positive numbers entered and the average of the negative numbers is "+formatter.format(negativeAverage));
+   	 else if(positiveAverage!=0 && negativeAverage==0)
+   		 System.out.println("The average of the positive numbers is "+formatter.format(positiveAverage)+" and there were no negative numbers entered");
+   	 else if(positiveAverage==0 && negativeAverage==0)
+   		 System.out.println("There were no positive or negative numbers entered");
+   	 else
+   		 System.out.println("The average of the positive numbers is "+formatter.format(positiveAverage)
+       		 +" and the average of the negative numbers entered is "+formatter.format(negativeAverage));
+    }
+}

@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.text.*;
+public class ForLoop10To12
+{
+    public static void main(String[] args)
+    {
+   	 //Problem #10: Positive integers
+   	 int prompt=Integer.parseInt(JOptionPane.showInputDialog("Input a positive number"));
+   	 int sum=0;
+   	 for(int i=1; i<prompt; i++)
+   	 {
+   		 if(prompt%i==0)
+   		 {
+       		 sum=sum+i;
+   		 }
+   	 }
+   	 if(sum==prompt)
+   	 {
+   		 System.out.println(prompt+" is a perfect number");
+   	 }
+   	 else if(sum!=prompt)
+   	 {
+   		 System.out.println(prompt+" is not a perfect number");
+   	 }
+
+   	 //Problem #11: Letter a's
+   	 // int sentence=Integer.parseInt(JOptionPane.showInputDialog("Write a sentence"));
+   	 String sentence=JOptionPane.showInputDialog("Write a sentence");
+   	 int ctr=0;
+   	 for(int i=0; i<=sentence.length()-1; i++)
+   	 {
+   		 if(sentence.substring(i,i+1).equals("a"))
+   		 {
+       		 ctr++;
+   		 }
+   		 else
+   		 {
+   		 }
+   	 }
+   	 System.out.println("There are "+ctr+" a's in the sentence");
+
+   	 //Problem #12: Name backwards
+   	 String name=JOptionPane.showInputDialog("Input a name");
+   	 //Use string for names and int/double for #s
+   	 for(int i=name.length()-1; i>=0; i++)
+   	 {
+   		 System.out.println(name.substring(i, i+1));
+   	 }
+    }
+}

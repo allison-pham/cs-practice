@@ -1,0 +1,49 @@
+import javax.swing.*;
+import java.text.*;
+public class ForLoop7To9
+{
+    public static void main(String[] args)
+    {
+   	 //Problem #7: Integers
+   	 int ctr=0;
+   	 for(int i=1; i<=10; i++)
+   	 {
+   		 int prompt=Integer.parseInt(JOptionPane.showInputDialog("Input an integer."));
+   		 if(i%2!=0)
+   		 {   
+       		 ctr=ctr+1;
+   		 }
+   	 }
+   	 System.out.print("There were "+ctr+" odd integers");
+
+   	 // //Problem #8: Factors of positive integers
+   	 // int question=Integer.parseInt(JOptionPane.showInputDialog("Input a positive integer."));
+   	 // System.out.print("The factors of "+question+" are: ");
+   	 // for(int i=1; i<question; i++)
+   	 // {
+   		 // if(question>0 && question%i==0)
+   		 // {
+       		 // System.out.print(+i+", ");
+   		 // }
+   	 // }
+   	 // System.out.println(question+".");
+
+   	 // //Problem #9: Factorial
+   	 // int ask=Integer.parseInt(JOptionPane.showInputDialog("Input a positive integer"));
+   	 // int product=1;
+   	 // System.out.print(ask+"! = ");
+   	 // for(int i=1; i<=ask; i++)
+   	 // {
+   		 // product=product*i;
+   		 // if(i==ask)
+   		 // {
+       		 // System.out.print(i);
+   		 // }
+   		 // else
+   		 // {
+       		 // System.out.print(i+" x ");
+   		 // }
+   	 // }
+   	 // System.out.print(" = "+product);
+    }
+}

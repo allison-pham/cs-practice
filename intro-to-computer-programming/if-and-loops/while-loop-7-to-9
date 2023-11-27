@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.text.*;
+public class WhileLoop7To9
+{
+    public static void main(String[] args)
+    {
+   	 //Problem #7: Organisms
+   	 int hrs=0;
+   	 int i=1000;
+   	 while(i<=1000000)
+   	 {
+   		 i=i*2;
+   		 hrs=hrs+12;
+   	 }
+   	 System.out.println("It took "+hrs+" for 1000 organisms to double to at least 1 million.");
+
+   	 //Problem #8: Grading scale
+   	 int grd=Integer.parseInt(JOptionPane.showInputDialog("Input a test grade. Input -1 to terminate."));
+   	 int ctrA=0;
+   	 int ctrB=0;
+   	 int ctrC=0;
+   	 int ctrD=0;
+   	 int ctrF=0;
+   	 while(!(grd==-1))
+   	 {
+   		 if(grd!=-1 && grd>=90)
+       		 ctrA++;
+   		 else if(grd!=-1 && grd>=80 && grd<90)
+       		 ctrB++;
+   		 else if(grd!=-1 && grd>=70 && grd<80)
+       		 ctrC++;
+   		 else if(grd!=-1 && grd>=60 && grd<70)
+       		 ctrD++;
+   		 else if(grd!=-1 && grd<60)
+       		 ctrF++;
+   		 grd=Integer.parseInt(JOptionPane.showInputDialog("Input a test grade. Input -1 to terminate."));
+   	 }
+   	 System.out.println("A's = "+ctrA+"\nB's = "+ctrB+"\nC's = "+ctrC+"\nD's = "+ctrD+"\nF's = "+ctrF);
+
+   	 //Problem #9: Manhatten Island price
+   	 double price=24;
+   	 int years=1626;
+   	 while(years<=2021)
+   	 {
+   		 System.out.println(years+" --> $"+price);
+   		 price=24*1.1;
+   		 years=years+1;
+   	 }
+    }
+}

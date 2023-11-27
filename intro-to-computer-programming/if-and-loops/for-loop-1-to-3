@@ -1,0 +1,41 @@
+import javax.swing.*;
+import java.text.*;
+public class ForLoop1To3
+{
+    public static void main(String[] args)
+    {
+   	 //Note: If a variable does not change, include it outside of the for loop.
+   	 //Example: for(int i=num; i>=0 at; i++)
+   	 //(num is what it starts at, 0 is what it ends at, and i++ is increase)
+  	 
+   	 //Problem 1: Stars
+   	 int num=Integer.parseInt(JOptionPane.showInputDialog("Input a positive integer"));
+   	 String stars="*";
+   	 int ctr=0;
+   	 for(int i=num; i>0; i--)
+   	 {
+   		 System.out.print(stars);
+   	 }
+
+   	 //Problem 2: Countdown
+   	 int count=Integer.parseInt(JOptionPane.showInputDialog("Input a number"));
+   	 for(int i=count; i>=0; i--)
+   	 {
+   		 System.out.println(i+"counting...");
+   	 }
+   	 System.out.println("Blast off!");
+
+   	 //Problem 3: Powers and products
+   	 System.out.println("Power\tProduct");
+   	 int answer=1;
+   	 NumberFormat formatter=NumberFormat.getNumberInstance();
+   	 formatter.setMaximumFractionDigits(0);
+   	 formatter.setMinimumFractionDigits(0);
+   	 final int DECIMALS=0;
+   	 for(int i=0; i<=14; i++)
+   	 {
+   		 System.out.println("2^"+i+"\t"+"="+formatter.format(answer));
+   		 answer=answer*2;
+   	 }
+    }
+}
