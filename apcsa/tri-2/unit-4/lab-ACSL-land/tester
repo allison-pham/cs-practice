@@ -1,0 +1,32 @@
+import chn.util.*;
+public class Tester {
+    public static void main(String[] args) {
+   	 ConsoleIO input = new ConsoleIO();
+   	 ACSL game = new ACSL();
+
+   	 System.out.println("This is ACSL Land. Two players are required. Player A goes first, then Player B.\nPlayer A's turn.");
+   	 int p1 = input.readInt();
+   	 game.playerA(p1);
+
+   	 System.out.println("Player B's turn.");
+   	 int p2 = input.readInt();
+   	 game.playerB(p2);
+
+   	 while(p1 != 0 || p2 != 0)
+   	 {
+   		 if(p2 < 41) {
+       		 System.out.println("Player A's turn.");
+       		 p1 = input.readInt();
+       		 game.playerA(p1);
+   		 }
+
+   		 if(p1 < 41)
+   		 {
+       		 System.out.println("Player B's turn.");
+       		 p2 = input.readInt();
+       		 game.playerB(p2);
+       		 // game.turn();
+   		 }
+   	 }
+    }
+}

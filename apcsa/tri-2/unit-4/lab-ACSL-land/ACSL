@@ -1,0 +1,113 @@
+public class ACSL {
+    //Add each dice roll to the previous (sum) to player A (or B)
+    private static int spacesA;
+    private static int spacesB;
+    private static int inputA;
+    private static int inputB;
+    private static boolean win;
+
+    public ACSL() { //Don't need??
+   	 spacesA = 0;
+   	 spacesB = 0;
+   	 win = false;
+    }
+
+    public static boolean playerA(int inputA) {
+   	 if(inputA != 0 && inputA != 4 && inputA != 6) { //Normal roll (go forward)
+   		 System.out.println("You rolled a " + inputA);
+   		 spacesA+=inputA;
+   		 System.out.println("A-" + spacesA + ", B-" + spacesB);
+   	 }
+
+   	 else if(inputA == 0) { //End game
+       		 System.out.println("You rolled a " + inputA + ".\nGame over, player B wins!");
+   	 }
+
+   	 else if(inputA == 4) { //Go backwards
+   		 if(spacesA >= 4) {
+       		 System.out.println("You move back 4 spaces.");
+       		 spacesA = spacesA - 4;
+       		 System.out.println("A-" + spacesA + ", B-" + spacesB);
+   		 }
+   		 else if(spacesA < 4) { //Prevents a negative sum
+       		 System.out.println("You move back 4 spaces.");
+       		 spacesA = 0;
+       		 System.out.println("A-START" + ", B-" + spacesB);
+   		 }
+   	 }
+
+   	 else if(inputA == 6) { //Go backwards
+   		 if(spacesA >= 6) {
+       		 System.out.println("You move back 6 spaces.");
+       		 spacesA = spacesA - 6;
+       		 System.out.println("A-" + spacesA + ", B-" + spacesB);
+   		 }
+   		 else if(spacesA < 6) {
+       		 System.out.println("You move back 6 spaces.");
+       		 spacesA = 0;
+       		 System.out.println("A-START"+", B-"+spacesB);
+   		 }
+   	 }
+
+   	 //Check if this is works in the for loop
+   	 if(spacesA >= 41) { //Win
+   		 win = true;
+   		 System.out.println("Player A wins!");
+   	 }
+
+   	 return win;
+    }
+
+    public static boolean playerB(int inputB) {
+   	 if(inputB != 0 && inputB != 4 && inputB != 6) {
+   		 System.out.println("You rolled a " + inputB);
+   		 spacesB+=inputB;
+   		 System.out.println("A-" + spacesA + ", B-" + spacesB);
+   	 }
+
+   	 else if(inputB == 0) { //Game over
+   		 System.out.println("Game over, player A wins!");
+   	 }
+
+   	 else if(inputB == 4) {
+   		 if(spacesB >= 4) {
+       		 System.out.println("You move back 4 spaces.");
+       		 spacesB = spacesB - 4;
+       		 System.out.println("A-" + spacesA + ", B-" + spacesB);
+   		 }
+   		 else if(spacesB < 4) {
+       		 System.out.println("You move back 4 spaces.");
+       		 spacesB = 0;
+       		 System.out.println("A-" + spacesA + ", B-START");
+   		 }
+   	 }
+
+   	 else if(inputB == 6) {
+   		 if(spacesB >= 6) {
+       		 System.out.println("You move back 6 spaces.");
+       		 spacesB = spacesB - 6;
+       		 System.out.println("A-" + spacesA + ", B-" + spacesB);
+   		 }
+   		 else if(spacesB < 6) {
+       		 System.out.println("You move back 6 spaces.");
+       		 spacesB = 0;
+       		 System.out.println("A-" + spacesA + ", B-START");
+   		 }
+   	 }
+   	 if(spacesB >= 41) { //Win
+   		 win = true;
+   		 System.out.println("Player B wins!");
+
+   	 }
+   	 return win;
+    }
+
+    public static void turn() {
+   	 playerA(inputA);
+   	 playerB(inputB);
+   	 // if(spacesA == 41) {
+   	 // win = true;
+   	 // break;
+   	 // }
+    }
+}

@@ -1,0 +1,30 @@
+public class Rolling {
+    public Rolling() {
+   	 //Roll four 6-sided dice until they're ALL different
+    }
+
+    public static void dice() {
+   	 int ctr = 0;
+   	 boolean different = false;
+   	 while(different == false) { //while(!(dice1 != dice2 != dice3 != dice4))
+   		 int dice1 = (int)(Math.random() * 6+1); //0-6 for index
+   		 int dice2 = (int)(Math.random()* 6+1);
+   		 int dice3 = (int)(Math.random() * 6+1);
+   		 int dice4 = (int)(Math.random() * 6+1);
+
+   		 if((dice1 != dice2) && (dice1 != dice3) && (dice1 != dice4)
+   		 && (dice2 != dice3) && (dice2 != dice4) && (dice3 != dice4)) {
+       		 different = true;
+       		 ctr++;
+       		 System.out.println(dice1+" "+dice2+" "+dice3+" "+dice4);
+       		 System.out.println("count = "+ctr);
+       		 break;
+   		 }
+
+   		 else {
+       		 ctr++;
+       		 System.out.println(dice1+" "+dice2+" "+dice3+" "+dice4);
+   		 }
+   	 }
+    }
+}

@@ -1,0 +1,17 @@
+public class VehicleTester
+{
+    public static void main(String[] args)
+    {
+   	 Vehicle v1 = new Vehicle("Ford", "Mustang");
+   	 Vehicle v2 = new Car("Toyota" , "Corolla", 4);
+   	 Vehicle v3 = new Truck("Ford", "F-250", 4000);
+   	 Vehicle v4 = new GasCar("Mercedes", "CLA-Class Coupe", 4, 13.2);
+   	 Vehicle v5 = new ElectricCar("Toyota", "Prius", 4, 100);
+   	 //printing a reference variable calls the toString method
+   	 System.out.println(v1);
+   	 System.out.println(v2);
+   	 System.out.println(v3);
+   	 System.out.println(v4);
+   	 System.out.println(v5);
+    }
+}
