@@ -1,0 +1,12 @@
+import java.io.*;
+import java.util.*;
+public class Tester
+{
+    public static void main(String[] args)
+    {
+   	 Life g = new Life("lifeNums.txt");
+   	 //g = grid
+   	 g.fillArrayFromFile();
+   	 g.print();
+    }
+}

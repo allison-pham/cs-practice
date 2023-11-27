@@ -1,0 +1,212 @@
+import java.io.*;
+import java.util.*;
+public class Life {
+    //One method for one task (then test it)
+    //Nums in the file tell you which ones should be alive
+    private Scanner reader;
+    private File fileName;
+    private int[][] grid;
+    private int[][] temp;
+    private int loglength; //logical length
+    private final int rowsAmt = 22; //rows amount
+    private final int colsAmt = 22; //column amount
+    public Life(String fileName) { //Initialize
+   	 grid = new int[22][22];
+   	 temp = new int[22][22]; //Use later
+   	 loglength = 0; //Initialize
+   	 try {
+   		 reader = new Scanner(new File(fileName));
+   	 }
+   	 catch (Exception e) {
+   		 System.out.println("File not found.");
+   	 }
+    }
+
+    public void fillArrayFromFile() { //Read file & fill it in w/ a 2d array from file
+   	 int r = 0; //rows
+   	 int c = 0; //columns
+   	 while(reader.hasNextInt()) {
+   		 r = reader.nextInt();
+   		 c = reader.nextInt();
+   		 if(r>=0 && r<grid.length && c>=0 && c<grid[0].length) {
+       		 grid[r][c] = 1;
+   		 }
+   	 }
+    }
+
+    public void print() { //Need parameter b/c print(grid) in previous method doesn't work
+   	 //Move to tester & test constructor, fill & print
+   	 //Print row & column headers similar to multiplication table lab
+   	 int ctrA = 1;
+   	 int ctrB = 0;
+   	 int ctrC = 1;
+   	 System.out.print("   ");
+   	 for(int i = 1; i<21; i++) {
+   		 if(ctrA == 10 || ctrA == 20) {
+       		 ctrA = 0;
+   		 }
+   		 System.out.print(ctrA);
+   		 ctrA++;
+   	 }
+   	 System.out.println();
+   	 for(int a = 1; a<grid.length-1; a++) { //Rows
+   		 System.out.print(ctrC + " ");
+   		 if(ctrC <= 9) {
+       		 System.out.print(" ");
+   		 }
+   		 for(int b = 1; b<grid[a].length-1; b++) { //Col
+       		 if(grid[a][b] != 0) {
+           		 System.out.print("1");
+       		 }
+       		 else if(grid[a][b] == 0) {
+           		 System.out.print("0");
+       		 }
+   		 }
+   		 System.out.println();
+   		 ctrC++;
+   	 }
+   	 // for(int r = 0; r<x.length; r++) //Rows
+   	 // {
+   	 // for(int c = 0; c<x.length; c++) //Columns
+   	 // {
+   	 // System.out.print(x[r][c]);
+   	 // }
+   	 // System.out.println();
+   	 // }
+    }
+
+    public void startNewGeneration() {
+   	 //This will traverse through grid & countNeighbors
+   	 //Fill & print
+   	 // boolean finish = false; //For the while loop
+   	 // int x = 0;
+   	 for (int g = 0; g<5; g++) { //Continues to run until it has reached generation 5
+   		 int[][] temp = new int[rowsAmt][colsAmt]; //Store 2d array
+   		 for(int a = 1; a<=21; a++) { //Rows
+       		 for(int b = 1; b<=21; b++) { //Columns
+           		 //nested for loop to go through grid/petri dish
+           		 int countAliveNeighbors = 0; //Counts living neighbors. Resets later
+           		 for(int i = a-1; i<=a+1; i++) {
+               		 for(int k = b-1; k<=b+1; k++) {
+                   		 if(i != rowsAmt || k != colsAmt) {
+                       		 countAliveNeighbors += grid[i][k];
+                   		 }
+               		 }
+           		 }
+           		 if (grid[a][b] == 1) {
+               		 if (countAliveNeighbors == 2 || countAliveNeighbors == 3) {
+                   		 temp[a][b] = 1;
+               		 }
+           		 }
+           		 else {
+               		 if (countAliveNeighbors == 3) {
+                   		 temp[a][b] = 1;
+               		 }
+           		 }
+       		 }
+   		 }
+   		 grid = temp;
+   	 }
+   	 // for(int i = 0; i<grid.length; i++)
+   	 // {
+   	 // for(int k = 0; k<grid[i].length; k++)
+   	 // {
+   	 // countNeighbors(i, k);
+   	 // }
+   	 // }
+    }
+
+    // public int countNeighbors(int a, int b) //a = rows, b = columns
+    // {
+    // int ctr = 0; //Count neighbors
+    // for(int r = 0; r<grid.length; r++) //Rows (x)
+    // {
+    // for(int c = 0; c<grid[r].length; c++) //Columns (y)
+    // {
+    // int x = a + r; //a = current spot, i = adding
+    // int y = b + c; //b = current spot, c = adding
+    // if((x >= 0 && x <=20) && (y >= 0 && y<=20))
+    // {
+    // if((x-1 == x && x == x+1) && (y-1 == y && x == y+1))
+    // ctr++;
+    // }
+    // }
+    // }
+    // return ctr;
+    // }
+
+    public void decideLiveOrDie() { //public void decideLiveOrDie(int r, int c, int neighbors)
+   	 int ctr = 0;
+   	 for(int a = 1; a<grid.length-1; a++) {
+   		 for (int b = 1; b<grid[a].length-1; b++) {
+       		 if(grid[a][b] == 1) {
+           		 ctr++;
+       		 }
+   		 }
+   	 }
+   	 // boolean yes = false; //yes = lives
+   	 // for(int a = 0; a<grid.length; a++)
+   	 // {
+   	 // for(int b = 0; b<grid[a].length; b++)
+   	 // {
+   	 // if((r == c) && (r-1 == c) && (r+1 == c) && (r == c-1) && (r == c+1))
+   	 // {
+   	 // yes = true;
+   	 // }
+   	 // }
+   	 // }
+    }
+
+    // public void copy()
+    // {
+    // //Copy 'temp' back to 'grid' --> use nested for loop to copy back
+    // for(int r = 0; r<grid.length; r++)
+    // {
+    // for(int c = 0; c<grid[r].length; c++)
+    // {
+    // grid = temp;
+    // }
+    // }
+    // }
+
+    public int countRow(int tempR) {
+   	 int ctrR = 0;
+   	 //If you're counting a row, you don't need a for loop. Just go to grid[r] & get the length
+   	 for(int i = 1; i<21; i++) {
+   		 // for(int i = 0; i<grid[r].length; i++) {
+   		 if(grid[tempR][i] == 1) {
+       		 ctrR++;
+   		 }
+   	 }
+   	 return ctrR;
+    }
+
+    public int countCol(int tempC) {
+   	 int ctrC = 0;
+   	 for(int i = 1; i<21; i++) {
+   		 if(grid[i][tempC] == 1) {
+       		 ctrC++;
+   		 }
+   	 }
+   	 // for(int i = 0; i<grid.length; i++) {
+   	 // for(int k = 0; k<grid[i].length; k++) {
+   	 // colCtr++;
+   	 // }
+   	 // }
+   	 return ctrC;
+    }
+
+    // public int countTotal()
+    // {
+    // int ctr = 0;
+
+    // for(int r = 0; r<grid.length; r++)
+    // {
+    // for(int c = 0; c<grid[r].length; c++)
+    // {
+    // ctr = r+c;
+    // }
+    // }
+    // return ctr;
+    // }
+}
