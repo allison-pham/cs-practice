@@ -1,0 +1,25 @@
+#1) Output all the lines from cars.txt here
+fHandle = open("cars.txt", "r")
+#fHandle is the usual name for file handling
+#fHandle is the middle man
+
+#fHandle = open("../cars.txt", "r")
+#Goes up a directory in a string
+
+#1. How do I read ONLY the car brands?
+for line in fHandle:
+    line = line.rstrip()
+    year, car = line.split("-") #By default, split() splits by spaces
+    #year = int(year)
+    #year += 1
+    print(line)
+    
+fHandle.close()
+
+#2) How do I add another car to the file?
+fHandle = open("../cars.txt", "a")
+
+#2023 Toyota
+fHandle.write("2023-Toyota")
+
+fHandle.close()
