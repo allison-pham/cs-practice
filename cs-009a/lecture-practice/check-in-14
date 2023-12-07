@@ -1,0 +1,11 @@
+# Given a dictionary that has a string key & a list value, create a function that returns the length of the smallest list
+def smallestList(valueList):
+    smallest = len(valueList.values()[0])
+    
+    for i in valueList:
+        currentVal = valueList.get(i)
+        
+        if currentVal < smallest:
+            smallest = currentVal
+    
+    return smallest

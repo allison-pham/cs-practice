@@ -1,0 +1,94 @@
+# Given a dictionary, with a string key & an integer list value, do the following:
+    # artist_name : album_yearws
+    # 1. Write a function that takes an artist name as input & returns the # of albums they've released
+        #Also takes in the dictionary as input
+    # 2. Write a function that finds the highest # of albums released by an artist in the dictionary
+    # 3. Write a function that finds the lowest # of albums released by an artist in the dictionary
+    # 4. Write a function that gives the dictionary, artist name, & year, returns True if the artist released
+        #or false otherwise
+    # 5. Write a function that gives the dictionary, 2 artist names, return the list of years that both artists
+    # 6. Same as #5, but for 3 artists
+    # 7. Write a function that gives the dictionary, & a year, returns a list of all artists that released
+
+album_years_dict = {
+    "Taylor Swift": [2006, 2008, 2010, 2012, 2014, 2017, 2019, 2020, 2020, 2022],
+    "Ed Sheeran": [2011, 2014, 2017, 2019, 2022, 2023, 2023],
+    "Beyonce": [2003, 2006, 2008, 2011, 2013, 2016, 2022],
+    "Kanye West": [2004, 2005, 2007, 2008, 2010, 2013, 2018, 2019, 2021],
+} # Data type is a list of integers
+
+# Problem #1
+def numAlbums(album_years_dict, artistName):
+    #Make a count variable
+    #Find the list of years for artistName in album_years_dict
+    #For each year, increment count
+    
+    count = 0
+    listOfAlbumYears = album_years_dict.get(artistName)
+    
+    for i in listOfAlbumYears:
+        count += 1
+        
+    return count
+
+# Problem 2
+def HighestNumAlbums(album_years_dict):
+    maxCount = 0
+    for artist in album_years_dict:
+        artistCount = numAlbums(album_years_dict, artist)
+        if artistCount > maxCount:
+            maxCount = artistCount
+    
+    return maxCount
+
+# Problem 3
+def SmallesstNumAlbums(album_years_dict):
+    minCount = len(album_years_dict.values()[0])
+    for artist in album_years_dict:
+        artistCount = numAlbums(album_years_dict, artist)
+        if artistCount < maxCount:
+            minCount = artistCount
+    
+    return minCount
+
+# Problem 4
+def HasAlbumInYear(album_years_dict, artistName, year):
+    return (year in album_years_dict.get(artistName))
+
+# Problem 5
+def CommonYears(album_years_dict, artist1, artist2):
+    yearsInCommon = []
+    
+    for year in album_years_dict.get(artist1):
+        # get() is the safer version of using [] b/c it will output something like "Taylor Swift could not be found"
+        # [] would cause the program to crash if it's not correct
+        if year in album_years_dict.get(artist2):
+            yearsInCommon.append(year)
+    
+    return yearsInCommon
+
+# Problem 6
+def CommonYears3(album_years_dict, artist1, artist2, artist3):
+    yearsInCommon = []
+    
+    for year in album_years_dict.get(artist1):
+        if year in album_years_dict.get(artist2) and year in album_years_dict.get(artist3):
+            yearsInCommon.append(year)
+    
+    return yearsInCommon
+
+'''def CommonYears3(album_years_dict, artist1, artist2, artist3):
+    first2YearsInCommon = CommonYears(album_years_dict, artist1, artist2)
+    # Then run in a for loop'''
+
+# Problem 7
+def GetArtistsByYear(album_years_dict, year):
+    listOfYearLists = album_years_dict.values()
+    # for yearList in listOfYearLists:
+    
+    artistlist = []
+    for aritst in album_years_dict:
+        if year in album_years_dict.get(artist):
+            artistList.append(artist)
+    
+    return artistList
