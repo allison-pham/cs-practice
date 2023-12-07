@@ -6,7 +6,7 @@ numReadings = len(lines)
 avgEmissions = 0
 totalEmissions = 0
 
-# numObservatisons = 0
+numObservations = 0
 variance = 0
 
 for line in lines:
@@ -26,6 +26,6 @@ for line in lines:
     
     variance += (emissions - avgEmissions) ** 2
 
-variance /= (numReadings - 1)
+variance /= (numObservations - 1)
 
 print("Variance in San Mateo County Emissions: ", variance)

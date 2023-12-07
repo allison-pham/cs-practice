@@ -1,0 +1,45 @@
+# Answer for Translator
+#Given a dictionary that has the English word as a string key & the Spanish word as the string value
+#Output all key value pairs as "englishWord = spanishWord"
+
+englishToSpanish = {}
+
+englishToSpanish['Hello'] = 'Hola'
+englishToSpanish['How are you'] = 'Como estas'
+englishToSpanish['Avocado'] = 'Palta'
+englishToSpanish['Cat'] = 'Gato'
+
+for key in englishToSpanish: #By default, it goes through every key (meaning you don't need to call keys())
+    print(f"{key} = {englishToSpanish.get(key)}")
+    #get() gets the value associated with the key
+
+# Answer for Cities
+#Ask the user for 4 names & then what cities they've lived in (until they enter quit)
+#At the end, print out everyone & where they've lived
+#Example:
+    #John Lee: Chicago, Los Angeles,
+    #Alice Baker: Redlands, San Diego,
+#Keys must be immutable (non-changing)
+personToPlaces = {} #blankToBlank form for dictionaries
+
+for i in range(4):
+    name = input("Input a name.")
+    place = ""
+    places = []
+    
+    while place != "quit":
+        place = input("Where have you lived?")
+        
+        if place != "quit":
+            places.append(place)
+        
+    personToPlaces[name] = places
+
+for key in personToPlaces:
+    print(key, end = ": ")
+    #for location in personToPlaces.get(key):
+        #print(location, end = ", ")
+    places = personToPlaces.get(key)
+    for i in range(len(places)) - 1):
+        print(places[i], end = ", ")
+    print(places[-1])
