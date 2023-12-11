@@ -29,7 +29,6 @@ class Solution {
     return true;
   }
 }
-
 // for (int i = 0, j = original.length() - 1; i < j; i++, j--) {
 /*int i = x;
     int reverse = 0;
