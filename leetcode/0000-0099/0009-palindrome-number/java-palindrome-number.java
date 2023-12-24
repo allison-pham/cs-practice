@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/palindrome-number/description/
+// https://leetcode.com/problems/palindrome-number/
 /*9. Palindrome Number
   Given an integer x, return true if x is a palindrome, and false otherwise.
 
@@ -34,10 +34,8 @@ class Solution {
     }
 
     return true;
-  }
-}
-// for (int i = 0, j = original.length() - 1; i < j; i++, j--) {
-/*int i = x;
+    // for (int i = 0, j = original.length() - 1; i < j; i++, j--) {
+    /*int i = x;
     int reverse = 0;
 
     while (i > 0) {
@@ -47,3 +45,5 @@ class Solution {
     }
 
     return original == reversed;*/
+  }
+}
