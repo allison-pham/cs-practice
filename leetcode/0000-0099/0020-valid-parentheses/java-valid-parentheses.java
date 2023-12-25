@@ -29,14 +29,17 @@ class Solution {
     if (s.length() % 2 != 0) {
       return false;
     }
-    for (int i = 0; i < s.length() - 1; i++) {
+    for (int i = 0; i < s.length() - 1; i += 2) {
       char start = s.charAt(i);
-      char end = s.charAt(s.length() - 1 - i);
+      char end = s.charAt(i + 1);
+      // char end = s.charAt(s.length() - 1 - i);
 
       if (
-        (start == '(' && end != ')') ||
-        (start == '{' && end != '}') ||
-        (start == '[' && end != ']')
+        !(
+          (start == '(' && end == ')') ||
+          (start == '{' && end == '}') ||
+          (start == '[' && end == ']')
+        )
       ) {
         return false;
       }
