@@ -26,6 +26,27 @@
 class Solution {
 
   public boolean isValid(String s) {
+    if (s.length() % 2 != 0) {
+      return false;
+    }
+    for (int i = 0; i < s.length() - 1; i++) {
+      char start = s.charAt(i);
+      char end = s.charAt(s.length() - 1 - i);
+
+      if (
+        (start == '(' && end != ')') ||
+        (start == '{' && end != '}') ||
+        (start == '[' && end != ']')
+      ) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+/*class Solution {
+
+  public boolean isValid(String s) {
     for (int i = 0; i < s.length() - 1; i++) {
       if (s.charAt(i) == '(' && s.charAt(i.length() - 1) == ')') {
         return true;
@@ -37,4 +58,4 @@ class Solution {
     }
     return false;
   }
-}
+}*/
