@@ -12,20 +12,33 @@ the output is:
 
 Note: For testing purposes, a pseudo-random number generator with a fixed seed value is used in the program. The program uses a seed value of 2 during development, but when submitted, a different seed value may be used for each test case.
 The program must define and call the following function:
-string CoinFlip()*/
+  string CoinFlip()*/
 
 #include <iostream>
 #include <cstdlib>
 using namespace std;
 
 /* Define your function here */ 
+string CoinFlip() {
+   // Random value 1 or 0 (1 = heads, 0 = tails)
+   // Use % 
+    int randomNum = rand() % 2; // 2 is 0 to 1
+
+    if(randomNum == 1) {
+        cout << "Heads" << endl;
+    }
+    else {
+        cout << "Tails" << endl;
+    }
+}
 
 int main() {
    // Add more variables as needed
-   
-   srand(2);  // Unique seed
+   int numOfCoinFlips;
+   cin >> numOfCoinFlips; // Desired num of coin flips as input
 
-   /* Type your code here */
+   srand(2);  // Unique seed
+   CoinFlip();
 
    return 0;
 }

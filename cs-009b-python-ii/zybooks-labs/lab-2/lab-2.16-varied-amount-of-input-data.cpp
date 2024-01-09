@@ -35,7 +35,7 @@ int main() {
     average = total / ctr;
     cout << fixed << setprecision(2);
 
-    cout << total << " " << average;
+    cout << total << " " << average << endl;
 
    return 0;
 }
