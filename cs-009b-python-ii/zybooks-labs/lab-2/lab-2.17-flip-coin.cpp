@@ -20,25 +20,26 @@ using namespace std;
 
 /* Define your function here */ 
 string CoinFlip() {
-   // Random value 1 or 0 (1 = heads, 0 = tails)
-   // Use % 
-    int randomNum = rand() % 2; // 2 is 0 to 1
-
-    if(randomNum == 1) {
-        cout << "Heads" << endl;
-    }
-    else {
-        cout << "Tails" << endl;
-    }
+   int randomNum = rand() % 2; // 2 is 0 to 1
+   
+   if(randomNum == 1) {
+      return "Heads";
+   }
+   else {
+      return "Tails";
+   }
 }
 
 int main() {
    // Add more variables as needed
-   int numOfCoinFlips;
-   cin >> numOfCoinFlips; // Desired num of coin flips as input
-
+   int numOfCoinFlips = 0;
+   
    srand(2);  // Unique seed
-   CoinFlip();
+   cin >> numOfCoinFlips; // Desired num of coin flips as input
+   
+   for(int i = 0; i < numOfCoinFlips; i++) {
+      cout << CoinFlip() << endl;
+   }
 
    return 0;
 }
