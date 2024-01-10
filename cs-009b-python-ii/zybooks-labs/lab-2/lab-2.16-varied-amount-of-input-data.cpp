@@ -13,29 +13,29 @@ the output is:
 using namespace std;
 
 int main() {
-    // Negative int ends input & not included in calculations
-    double valueInput;
-    double total;
-    int ctr;
-    double average;
-    double maxVal = 0;
+   double valueInput = 0;
+   double total = 0;
+   int ctr = 0;
+   int maxVal = 0;
+   
+   cin >> valueInput;
+   while(valueInput >= 0) {
+      if(valueInput > maxVal) {
+         maxVal = valueInput;
+      }
+      
+      total += valueInput;
+      ctr++;
+      
+      cin >> valueInput;
+   }
+   
+   if(ctr > 0) {
+      double average = total / ctr;
 
-    cin >> valueInput;
-    while(valueInput >= 0) {
-        if(valueInput > maxVal) {
-            maxVal = valueInput;
-        }
-
-        total += valueInput;
-        ctr++;
-
-        cin >> valueInput;
-    }
-
-    average = total / ctr;
-    cout << fixed << setprecision(2);
-
-    cout << total << " " << average << endl;
+      cout << fixed << setprecision(2);
+      cout << maxVal << " " << average << endl;
+   }
 
    return 0;
 }
