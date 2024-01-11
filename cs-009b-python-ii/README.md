@@ -1,0 +1,2 @@
+# Necessary Tools
+- IDE: PyCharm
