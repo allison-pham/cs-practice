@@ -26,5 +26,6 @@ def normalizing(num_list):
 
     return updated_list
 
-# num_list = [1, 10, 50, 100]
-print(normalizing([1, 10, 50, 100]))
+
+num_list = [1, 10, 50, 100]
+print(normalizing(num_list))

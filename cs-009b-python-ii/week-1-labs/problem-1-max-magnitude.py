@@ -15,8 +15,5 @@ def max_magnitude(num_list):
     return max_val
 
 
-def main():
-    num_list = [1, 4, 7]
-    print(max_magnitude(num_list))
-
-main()
+num_list = [1, 4, 7]
+print(max_magnitude(num_list))
