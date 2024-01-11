@@ -1,2 +1,2 @@
 # Necessary Tools
-- IDE: PyCharm
+- IDE: PyCharm (Community Edition) - run weekl.py
