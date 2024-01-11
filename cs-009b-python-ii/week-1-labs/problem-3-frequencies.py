@@ -13,5 +13,5 @@ def frequencies(word_list):
 
     return frequency
 
-word_list = ["apple", "banana", "apple", "orange", "banana", "apple"]
+word_list = ["hi", "hello", "hi"]
 print(frequencies(word_list))
