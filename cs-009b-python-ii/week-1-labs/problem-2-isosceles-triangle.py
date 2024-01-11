@@ -14,3 +14,5 @@ def draw_triangle(width):
 
 def main():
     draw_triangle(3)
+
+main()
