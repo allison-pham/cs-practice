@@ -5,7 +5,8 @@ def normalizing(num_list):
     updated_list = []
 
     for k in num_list:
-        updated_list = [k / max_val]
+        updated_list.append(k / max_val)
+        # updated_list = [k / max_val]
 
     '''if not num_list:  # Check for empty list
         return []'''
