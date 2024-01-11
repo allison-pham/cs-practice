@@ -7,7 +7,7 @@ def frequencies(word_list):
 
     for word in word_list:
         if word in frequency:
-            frequenc[word] += 1
+            frequency[word] += 1
         else:
             frequency[word] = 1
 
