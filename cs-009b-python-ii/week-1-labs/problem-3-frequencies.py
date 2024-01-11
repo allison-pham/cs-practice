@@ -10,3 +10,7 @@ def frequencies(word_list):
         else:
             freq[word] = 1
     return freq
+
+
+word_list = ["apple", "banana", "apple", "orange", "banana", "apple"]
+print(frequencies(word_list))
