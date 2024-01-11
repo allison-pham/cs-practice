@@ -1,5 +1,3 @@
-# Transfer over to PyCharm
-
 def max_magnitude(num_list):
     # Given (a, b, c), find the max magnitude
     max_val = -1
