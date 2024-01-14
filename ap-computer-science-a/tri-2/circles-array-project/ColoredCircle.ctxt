@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=ColoredCircle
-comment1.params=x\ y\ radius\ c
-comment1.target=ColoredCircle(float,\ float,\ float,\ com.badlogic.gdx.graphics.Color)
-comment2.params=
-comment2.target=com.badlogic.gdx.graphics.Color\ getColor()
-comment3.params=c
-comment3.target=void\ setColor(com.badlogic.gdx.graphics.Color)
-numComments=4

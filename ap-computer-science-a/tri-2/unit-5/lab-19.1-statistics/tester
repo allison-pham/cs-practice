@@ -1,9 +1,0 @@
-public class Tester {
-    public static void main(String[] args) {
-   	 Statistics num = new Statistics("numbers.txt"); //7 5 5 9 5
-   	 // num.calcAverage(); //6.20
-   	 num.calcStandardDeviation();
-   	 num.calcMode();
-   	 // num.print();
-    }
-}
