@@ -1,3 +1,0 @@
-class Teacher extends Person { //Super class
-    private String subject; //Course subject
-    private double salary; //Teacher's annual salary

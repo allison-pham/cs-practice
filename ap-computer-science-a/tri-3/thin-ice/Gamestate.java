@@ -1,3 +1,0 @@
-public enum Gamestate {
-    MENU, TUTORIAL, WINNER, GAME, LOST, REPLAY //Use each in the Game class
-}

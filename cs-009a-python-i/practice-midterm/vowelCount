@@ -1,9 +1,0 @@
-#10) (10 points) Write a function VowelCount() that takes in 1 string input, word, and returns the
-#number of vowels in word.
-def vowelCount(word):
-    count = 0
-    for i in word:
-        if i.lower() in ['a', 'e', 'i', 'o', 'u']:
-        #if word[i] == 'a' or word[i] == 'e' or word[i] == 'i' or word[i] == 'o' or word[i] == 'u':
-            count += 1
-    return count

@@ -1,7 +1,0 @@
-public abstract class Animal { //Interface
-    //abstract class has at least one abstract method (method with no body), this FORCES
-    //the subclasses to Override these methods!
-    //To be an "Animal": sound & type
-    public abstract String getSound(); //This has to be Overridden in the subclass
-    public abstract String getType(); //This has to be Overridden in the subclass
-}
