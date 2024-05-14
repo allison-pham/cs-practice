@@ -1,2 +1,1 @@
-# cs-practice
-## in development
+# CS Practice
