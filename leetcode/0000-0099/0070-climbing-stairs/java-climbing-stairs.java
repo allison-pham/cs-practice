@@ -23,5 +23,20 @@
 
 class Solution {
 
-  public int climbStairs(int n) {}
+  public int climbStairs(int n) {
+    int numWays = 0;
+
+    // Loop through the number of steps
+    for(int i = n; i > 0; i--) {
+      // Combinations can work (1 + 2, along with 2 + 1 are separate combinations)
+      
+      // n = 2
+      
+    }
+
+    print("There are " + numWays + " ways to climb to the top.")
+
+    // for loop to print out all the possible combinations
+    for(int k = 0; k < )
+  }
 }
